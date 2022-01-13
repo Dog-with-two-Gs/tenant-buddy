@@ -1,5 +1,5 @@
 const router = require('express').Router();
 
-// Make routes
+// Make GET, CREATE, PUT routes
 
 module.exports = router;
