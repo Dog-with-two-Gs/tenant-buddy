@@ -18,6 +18,7 @@ DryLevel.init(
     default_time: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 45
     },
   },
   {
