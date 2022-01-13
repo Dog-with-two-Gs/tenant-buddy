@@ -118,45 +118,24 @@ Complex.hasOne(Employee, {
     foreignKey: 'machine_id'
   })
 
-  //Machine - Washer Settings
-  //Machine hasMany Washer Settings
-  Machine.hasMany(WasherSettings, {
-    foreignKey: 'machine_id'
-  });
-  //WasherSetting belongsToMany Machines
-  WasherSettings.belongsToMany(Machine, {
-    foreignKey: 'machine_id'
-  });
-
-//Machine - Dryer Settings
-  //Machine hasMany DryerSettings
-  Machine.hasMany(DryerSettings, {
-    foreignKey: 'machine_id'
-  });
-  //DryerSettings belongsToMany Machines
-  DryerSettings.belongsToMany(Machine, {    
-    foreignKey: 'machine_id'
-  });
-
 //Washer Settings - Cycle Type
   //Washer Settings hasMany CycleType
-  WasherSettings.hasMany(CycleType, {
-    foreignKey: 'cycle_id',
-    // onDelete: 'CASCADE'
+  Machine.belongsToMany(CycleType, {
+    through: WasherSettings
   })
 
   //Cycle Type belongs to Many Washer Settings
-  CycleType.belongsToMany(WasherSettings, {
-    foreignKey: 'cycle_id'
+  CycleType.belongsToMany(Machine, {
+    through: WasherSettings
   });
 
 //Dryer Settings - Dry Level
   //Dryer Settings hasMany Dry Level
-  DryerSettings.hasMany(DryLevel, {
-    foreignKey: 'dry_id'
+  Machine.belongsToMany(DryLevel, {
+    through: DryerSettings
   });
 
   //Dry Level belongs to Dryer Settings
-  DryLevel.belongsToMany(DryerSettings, {
-    foreignKey: 'dry_id'
+  DryLevel.belongsToMany(Machine, {
+    through: DryerSettings
   });
