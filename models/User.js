@@ -62,8 +62,8 @@ Tenant.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tenant',
+    modelName: 'user',
   }
 );
 
-module.exports = Tenant;
+module.exports = User;
