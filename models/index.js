@@ -17,32 +17,96 @@ const WasherSettings = require('./WasherSettings');
 
 //Management - Employee
   //Management hasMany Employees 
+  Management.hasMany(Employee, {
+    foreignKey: 'management_id',
+    onDelete: 'CASCADE'
+  });
+
   //Employee BelongsTo Management
+  Employee.belongsTo(Management, {
+    foreignKey: 'management_id'
+  });
 
-//Role - Employee 
+//Role- Employee 
   //Role hasMany Employees
-  //Employee belongsTo Role
+  Role.hasMany(Employee, {
+    foreignKey: 'role_id',
+    onDelete: 'CASCADE'
+  });
 
-//Employee - Complex
+  //Employee belongsTo Role
+  Employee.belongsTo(Role, {
+    foreignKey: 'role_id'
+  })
+
+
+//Employee - Complex (management_id)
   //Employees BelongToMany Complexes
+  Employee.belongsToMany(Complex, {
+    foreignKey: 'management_id'
+  });
+
   //Complex hasMany Employees
+  Complex.hasOne(Employee, {
+    foreignKey: 'management_id',
+    onDelete: 'CASCADE'
+  });
+
+//Employee - Complex (maintenance)
+  //Employees BelongToMany Complexes
+Employee.belongsToMany(Complex, {
+  foreignKey: 'maintenance_id'
+});
+  //Complex hasMany Employees
+Complex.hasOne(Employee, {
+  foreignKey: 'maintenance_id',
+  onDelete:'CASCADE'
+})
 
 //Complex - Machine
   //Complex hasMany Machines
+  Complex.hasMany(Machine, {
+    foreignKey: 'maintenance_id'
+  });
   //Machine belongTo Complex
+  Machine.belongsTo(Complex, {
+    foreignKey: 'complex_id'
+  })
 
 //Complex - Apartment
   //Complex hasMany Apartment
+  Complex.hasMany(Apartment, {
+    foreignKey:'complex_id',
+    onDelete: 'CASCADE'
+  })
   //Apartment belongsTo Complex
+  Apartment.belongsTo(Complex {
+    foreignKey: 'complex_id'
+  })
 
-//Apartment - User
+//Apartment - User 
   //Apartment hasMany Users
-  //Tenant belongsTo Apartment
+  Apartment.hasMany(User, {
+    foreignKey:'apartment_id',
+    onDelete: 'CASCADE'
+  });
+  //UserbelongsTo Apartment
+  User.belongsTo(Apartment, {
+    foreignKey: 'apartment_id'
+  });
 
 //User - Reservation 
   //User hasMany Reservations
-  //reservation belongsTo User
+  User.hasMany(Reservation, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+  });
 
+  //reservation belongsTo User
+  Reservation.belongsTo(User, {
+    foreignKey: 'user_id'
+  });
+  
 //Machine - Reservation
   //Machine BelongsToMany Reservations 
   //Reservation hasOne Machine 
