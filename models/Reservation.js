@@ -19,7 +19,11 @@ Reservation.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    tenant_id: {
+    reserve_time: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
