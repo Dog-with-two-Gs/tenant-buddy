@@ -29,7 +29,7 @@ Tenant.init(
         allowNull: false,
     },
     phone_number: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
       email: {
