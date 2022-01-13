@@ -11,6 +11,14 @@ Reservation.init(
       primaryKey: true,
       autoIncrement: true,
     },  
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    started_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     tenant_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
