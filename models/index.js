@@ -80,7 +80,7 @@ Complex.hasOne(Employee, {
     onDelete: 'CASCADE'
   })
   //Apartment belongsTo Complex
-  Apartment.belongsTo(Complex {
+  Apartment.belongsTo(Complex, {
     foreignKey: 'complex_id'
   })
 
@@ -106,23 +106,57 @@ Complex.hasOne(Employee, {
   Reservation.belongsTo(User, {
     foreignKey: 'user_id'
   });
-  
+
 //Machine - Reservation
   //Machine BelongsToMany Reservations 
+  Machine.belongsToMany(Reservation, {
+    foreignKey: 'machine_id',
+    onDelete: 'CASCADE'
+  })
   //Reservation hasOne Machine 
+  Reservation.hasOne(Machine, {
+    foreignKey: 'machine_id'
+  })
 
-//Machine - Washer Settings
+  //Machine - Washer Settings
   //Machine hasMany Washer Settings
+  Machine.hasMany(WasherSettings, {
+    foreignKey: 'machine_id'
+  });
   //WasherSetting belongsToMany Machines
+  WasherSettings.belongsToMany(Machine, {
+    foreignKey: 'machine_id'
+  });
 
 //Machine - Dryer Settings
   //Machine hasMany DryerSettings
+  Machine.hasMany(DryerSettings, {
+    foreignKey: 'machine_id'
+  });
   //DryerSettings belongsToMany Machines
+  DryerSettings.belongsToMany(Machine, {    
+    foreignKey: 'machine_id'
+  });
 
 //Washer Settings - Cycle Type
   //Washer Settings hasMany CycleType
-  //Cycle Type belongs to Washer Settings
+  WasherSettings.hasMany(CycleType, {
+    foreignKey: 'cycle_id',
+    // onDelete: 'CASCADE'
+  })
+
+  //Cycle Type belongs to Many Washer Settings
+  CycleType.belongsToMany(WasherSettings, {
+    foreignKey: 'cycle_id'
+  });
 
 //Dryer Settings - Dry Level
   //Dryer Settings hasMany Dry Level
+  DryerSettings.hasMany(DryLevel, {
+    foreignKey: 'dry_id'
+  });
+
   //Dry Level belongs to Dryer Settings
+  DryLevel.belongsToMany(DryerSettings, {
+    foreignKey: 'dry_id'
+  });
