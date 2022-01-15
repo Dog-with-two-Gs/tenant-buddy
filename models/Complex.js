@@ -23,7 +23,7 @@ Complex.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    manager_id: {
+    employee_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -31,14 +31,7 @@ Complex.init(
           key: 'id'
       }
     },
-    maintenance_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'employee',
-            key: 'id'
-        }
-      },
+
   },
   {
     sequelize,
