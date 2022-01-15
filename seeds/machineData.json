@@ -3,24 +3,20 @@
         "type": "washer",
         "size": "6 cu ft",
         "opening": "front",
-        "status": "default: available"
     },
     {
         "type": "washer",
         "size": "5.5 cu ft",
         "opening": "top",
-        "status": "default: available"
     },
     {
         "type": "dryer",
         "size": "7.5 cu ft",
         "opening": "front",
-        "status": "default: available"
     },
     {
         "type": "dryer",
         "size": "9 cu ft",
         "opening": "front",
-        "status": "default: available"
     }
 ]
