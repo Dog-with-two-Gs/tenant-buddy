@@ -11,7 +11,7 @@ const Reservation = require('./Reservation');
 const Role = require('./Role');
 const User = require('./User');
 const WasherSettings = require('./WasherSettings');
-
+const Status = require('./Status')
 
 //relationships
 
@@ -42,23 +42,23 @@ const WasherSettings = require('./WasherSettings');
 
 //Employee - Complex (management_id)
   //Employees BelongToMany Complexes
-  Employee.belongsToMany(Complex, {
+  Employee.hasMany(Complex, {
     foreignKey: 'management_id'
   });
 
   //Complex hasMany Employees
-  Complex.hasMany(Employee, {
+  Complex.belongsTo(Employee, {
     foreignKey: 'management_id',
     onDelete: 'CASCADE'
   });
 
 //Employee - Complex (maintenance)
   //Employees BelongToMany Complexes
-Employee.belongsToMany(Complex, {
+Employee.hasMany(Complex, {
   foreignKey: 'maintenance_id'
 });
   //Complex hasMany Employees
-Complex.hasOne(Employee, {
+Complex.belongsTo(Employee, {
   foreignKey: 'maintenance_id',
   onDelete:'CASCADE'
 })
@@ -107,14 +107,14 @@ Complex.hasOne(Employee, {
     foreignKey: 'user_id'
   });
 
-//Machine - Reservation
+Machine - Reservation
   //Machine BelongsToMany Reservations 
-  Machine.belongsToMany(Reservation, {
+  Machine.hasMany(Reservation, {
     foreignKey: 'machine_id',
     onDelete: 'CASCADE'
   })
   //Reservation hasOne Machine 
-  Reservation.hasOne(Machine, {
+  Reservation.belongsTo(Machine, {
     foreignKey: 'machine_id'
   })
 
@@ -142,10 +142,10 @@ Complex.hasOne(Employee, {
 
 
   //Machine-Status
-  Machine.hasOne(Status, {
+  Machine.hasMany(Status, {
     foreignKey: 'status_id'
   });
 
-  Status.belongsToMany(Machine, {
+  Status.belongsTo(Machine, {
     foreignKey:'status_id'
   })
