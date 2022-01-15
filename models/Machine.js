@@ -23,9 +23,14 @@ Machine.init(
         type: DataTypes.STRING,
         allowNull: false,
     },  
-    status: {
-        type: DataTypes.STRING,
+    status_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 1, 
+        references: {
+          model: 'status',
+          key: 'id'
+        }
     },
     complex_id: {
         type: DataTypes.INTEGER,
