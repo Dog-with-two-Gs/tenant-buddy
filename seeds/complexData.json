@@ -1,17 +1,17 @@
 [
     {
-      "street_address": "1115 W 15th St",
-      "city": "Chicago",
-      "state": "IL"
+        "street_address": "1115 W 15th St",
+        "city": "Chicago",
+        "state": "IL"
     },
     {
-      "street_address": "19279 NW 27th Ave",
-      "city": "Miami",
-      "state": "FL"
+        "street_address": "19279 NW 27th Ave",
+        "city": "Miami",
+        "state": "FL"
     },
     {
-      "street_address": "1150 E St",
-      "city": "San Diego",
-      "state": "CA"
+        "street_address": "1150 E St",
+        "city": "San Diego",
+        "state": "CA"
     }
-  ]
+]

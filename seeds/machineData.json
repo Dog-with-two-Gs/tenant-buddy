@@ -1,0 +1,22 @@
+[
+    {
+        "type": "washer",
+        "size": "Small",
+        "opening": "front",
+    },
+    {
+        "type": "washer",
+        "size": "Small",
+        "opening": "top",
+    },
+    {
+        "type": "dryer",
+        "size": "Medium",
+        "opening": "front",
+    },
+    {
+        "type": "dryer",
+        "size": "Large",
+        "opening": "front",
+    }
+]
