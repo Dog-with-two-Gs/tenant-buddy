@@ -12,7 +12,7 @@ Complex.init(
       autoIncrement: true,
     },
     street_address: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     city: {

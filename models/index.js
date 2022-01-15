@@ -29,13 +29,13 @@ const WasherSettings = require('./WasherSettings');
 
 //Role- Employee 
   //Role hasMany Employees
-  Role.belongsToMany(Employee, {
+  Role.hasMany(Employee, {
     foreignKey: 'role_id',
     onDelete: 'CASCADE'
   });
 
   //Employee belongsTo Role
-  Employee.hasOne(Role, {
+  Employee.belongsTo(Role, {
     foreignKey: 'role_id'
   })
 
@@ -139,3 +139,13 @@ Complex.hasOne(Employee, {
   DryLevel.belongsToMany(Machine, {
     through: DryerSettings
   });
+
+
+  //Machine-Status
+  Machine.hasOne(Status, {
+    foreignKey: 'status_id'
+  });
+
+  Status.belongsToMany(Machine, {
+    foreignKey:'status_id'
+  })
