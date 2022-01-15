@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Tenant extends Model { }
+class User extends Model { }
 
-Tenant.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
