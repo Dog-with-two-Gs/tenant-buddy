@@ -2,21 +2,21 @@
     {
         "type": "washer",
         "size": "Small",
-        "opening": "front",
+        "opening": "front"
     },
     {
         "type": "washer",
         "size": "Small",
-        "opening": "top",
+        "opening": "top"
     },
     {
         "type": "dryer",
         "size": "Medium",
-        "opening": "front",
+        "opening": "front"
     },
     {
         "type": "dryer",
         "size": "Large",
-        "opening": "front",
+        "opening": "front"
     }
 ]
