@@ -40,33 +40,21 @@ const Status = require('./Status')
   })
 
 
-//Employee - Complex (management_id)
-  //Employees BelongToMany Complexes
-  Employee.belongsTo(Complex, {
-    foreignKey: 'management_id'
-  });
-
-  //Complex hasMany Employees
-  Complex.hasMany(Employee, {
-    foreignKey: 'management_id',
-    onDelete: 'CASCADE'
-  });
-
-//Employee - Complex (maintenance)
+//Employee - Complex
   //Employees BelongToMany Complexes
 Employee.belongsTo(Complex, {
-  foreignKey: 'maintenance_id'
+  foreignKey: 'employee_id'
 });
   //Complex hasMany Employees
 Complex.hasMany(Employee, {
-  foreignKey: 'maintenance_id',
+  foreignKey: 'employee_id',
   onDelete:'CASCADE'
 })
 
 //Complex - Machine
   //Complex hasMany Machines
   Complex.hasMany(Machine, {
-    foreignKey: 'maintenance_id'
+    foreignKey: 'complex_id'
   });
   //Machine belongTo Complex
   Machine.belongsTo(Complex, {
