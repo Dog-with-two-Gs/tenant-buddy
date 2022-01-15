@@ -25,7 +25,7 @@ CycleType.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'cycleType',
+    modelName: 'cycle',
   }
 );
 

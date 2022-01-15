@@ -25,7 +25,7 @@ DryLevel.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'dryLevel',
+    modelName: 'dry_level',
   }
 );
 
