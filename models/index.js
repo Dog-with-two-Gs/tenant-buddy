@@ -42,23 +42,23 @@ const Status = require('./Status')
 
 //Employee - Complex (management_id)
   //Employees BelongToMany Complexes
-  Employee.hasMany(Complex, {
+  Employee.belongsTo(Complex, {
     foreignKey: 'management_id'
   });
 
   //Complex hasMany Employees
-  Complex.belongsTo(Employee, {
+  Complex.hasMany(Employee, {
     foreignKey: 'management_id',
     onDelete: 'CASCADE'
   });
 
 //Employee - Complex (maintenance)
   //Employees BelongToMany Complexes
-Employee.hasMany(Complex, {
+Employee.belongsTo(Complex, {
   foreignKey: 'maintenance_id'
 });
   //Complex hasMany Employees
-Complex.belongsTo(Employee, {
+Complex.hasMany(Employee, {
   foreignKey: 'maintenance_id',
   onDelete:'CASCADE'
 })
@@ -120,7 +120,7 @@ Machine - Reservation
 
 //Washer Settings - Cycle Type
   //Washer Settings hasMany CycleType
-  Machine.belongsToMany(CycleType, {
+  Machine.hasMany(CycleType, {
     through: WasherSettings
   })
 
@@ -131,7 +131,7 @@ Machine - Reservation
 
 //Dryer Settings - Dry Level
   //Dryer Settings hasMany Dry Level
-  Machine.belongsToMany(DryLevel, {
+  Machine.hasMany(DryLevel, {
     through: DryerSettings
   });
 
@@ -148,4 +148,4 @@ Machine - Reservation
 
   Status.belongsTo(Machine, {
     foreignKey:'status_id'
-  })
+  });
