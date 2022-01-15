@@ -1,7 +1,7 @@
 //import all models. 
-const Apartment = require('./Aparment');
+const Apartment = require('./Apartment');
 const Complex = require('./Complex');
-const CycleType = requite('./CycleType');
+const CycleType = require('./CycleType');
 const DryerSettings = require('./DryerSettings');
 const DryLevel = require('./DryLevel');
 const Employee = require('./Employee');
