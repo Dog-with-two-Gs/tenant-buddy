@@ -11,7 +11,7 @@ const Reservation = require('./Reservation');
 const Role = require('./Role');
 const User = require('./User');
 const WasherSettings = require('./WasherSettings');
-
+const Status = require('./Status')
 
 //relationships
 
@@ -42,7 +42,7 @@ const WasherSettings = require('./WasherSettings');
 
 //Employee - Complex (management_id)
   //Employees BelongToMany Complexes
-  Employee.belongsToMany(Complex, {
+  Employee.belongsTo(Complex, {
     foreignKey: 'management_id'
   });
 
@@ -54,11 +54,11 @@ const WasherSettings = require('./WasherSettings');
 
 //Employee - Complex (maintenance)
   //Employees BelongToMany Complexes
-Employee.belongsToMany(Complex, {
+Employee.belongsTo(Complex, {
   foreignKey: 'maintenance_id'
 });
   //Complex hasMany Employees
-Complex.hasOne(Employee, {
+Complex.hasMany(Employee, {
   foreignKey: 'maintenance_id',
   onDelete:'CASCADE'
 })
@@ -107,20 +107,20 @@ Complex.hasOne(Employee, {
     foreignKey: 'user_id'
   });
 
-//Machine - Reservation
+Machine - Reservation
   //Machine BelongsToMany Reservations 
-  Machine.belongsToMany(Reservation, {
+  Machine.hasMany(Reservation, {
     foreignKey: 'machine_id',
     onDelete: 'CASCADE'
   })
   //Reservation hasOne Machine 
-  Reservation.hasOne(Machine, {
+  Reservation.belongsTo(Machine, {
     foreignKey: 'machine_id'
   })
 
 //Washer Settings - Cycle Type
   //Washer Settings hasMany CycleType
-  Machine.belongsToMany(CycleType, {
+  Machine.hasMany(CycleType, {
     through: WasherSettings
   })
 
@@ -131,7 +131,7 @@ Complex.hasOne(Employee, {
 
 //Dryer Settings - Dry Level
   //Dryer Settings hasMany Dry Level
-  Machine.belongsToMany(DryLevel, {
+  Machine.hasMany(DryLevel, {
     through: DryerSettings
   });
 
@@ -142,10 +142,10 @@ Complex.hasOne(Employee, {
 
 
   //Machine-Status
-  Machine.hasOne(Status, {
+  Machine.hasMany(Status, {
     foreignKey: 'status_id'
   });
 
-  Status.belongsToMany(Machine, {
+  Status.belongsTo(Machine, {
     foreignKey:'status_id'
-  })
+  });

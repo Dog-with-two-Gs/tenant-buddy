@@ -11,22 +11,6 @@ Employee.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    company_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'management',
-            key: 'id'
-        }
-      },
-      role_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-              model: 'role',
-              key: 'id'
-          }
-        },
     firstname: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -38,6 +22,23 @@ Employee.init(
     contact_number: {
         type: DataTypes.INTEGER,
         allowNull: false,
+    },
+
+    company_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'management',
+          key: 'id'
+      }
+    },
+    role_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'role',
+          key: 'id'
+      }
     },
   },
   {
