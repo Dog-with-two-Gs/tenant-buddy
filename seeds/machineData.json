@@ -1,22 +1,22 @@
 [
     {
         "type": "washer",
-        "size": "6 cu ft",
+        "size": "Small",
         "opening": "front",
     },
     {
         "type": "washer",
-        "size": "5.5 cu ft",
+        "size": "Small",
         "opening": "top",
     },
     {
         "type": "dryer",
-        "size": "7.5 cu ft",
+        "size": "Medium",
         "opening": "front",
     },
     {
         "type": "dryer",
-        "size": "9 cu ft",
+        "size": "Large",
         "opening": "front",
     }
 ]
