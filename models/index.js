@@ -47,7 +47,7 @@ const WasherSettings = require('./WasherSettings');
   });
 
   //Complex hasMany Employees
-  Complex.hasOne(Employee, {
+  Complex.hasMany(Employee, {
     foreignKey: 'management_id',
     onDelete: 'CASCADE'
   });
