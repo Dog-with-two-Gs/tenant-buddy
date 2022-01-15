@@ -1,17 +1,22 @@
 //import all models. 
-const Apartment = require('./Apartment');
-const Complex = require('./Complex');
-const CycleType = require('./CycleType');
-const DryerSettings = require('./DryerSettings');
-const DryLevel = require('./DryLevel');
+const Management = require('./Management');
+const Role = require('./Role');
+
 const Employee = require('./Employee');
 const Machine = require('./Machine');
-const Management = require('./Management');
-const Reservation = require('./Reservation');
-const Role = require('./Role');
+const Complex = require('./Complex');
+
+
+const Apartment = require('./Apartment');
+const CycleType = require('./CycleType');
+const DryLevel = require('./DryLevel');
+
 const User = require('./User');
+const DryerSettings = require('./DryerSettings');
 const WasherSettings = require('./WasherSettings');
 const Status = require('./Status')
+const Reservation = require('./Reservation');
+//relationships
 
 //relationships
 
@@ -42,14 +47,16 @@ const Status = require('./Status')
 
 //Employee - Complex
   //Employees BelongToMany Complexes
-Employee.belongsTo(Complex, {
+Employee.hasMany(Complex, {
   foreignKey: 'employee_id'
 });
   //Complex hasMany Employees
-Complex.hasMany(Employee, {
-  foreignKey: 'employee_id',
-  onDelete:'CASCADE'
-})
+  
+  Complex.belongsTo(Employee, {
+    foreignKey: 'employee_id',
+    // onDelete:'CASCADE'
+    constraints:false
+  })
 
 //Complex - Machine
   //Complex hasMany Machines
@@ -65,7 +72,7 @@ Complex.hasMany(Employee, {
   //Complex hasMany Apartment
   Complex.hasMany(Apartment, {
     foreignKey:'complex_id',
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
   })
   //Apartment belongsTo Complex
   Apartment.belongsTo(Complex, {
@@ -130,10 +137,12 @@ Machine - Reservation
 
 
   //Machine-Status
-  Machine.hasMany(Status, {
+  Machine.belongsTo(Status, {
     foreignKey: 'status_id'
   });
 
-  Status.belongsTo(Machine, {
-    foreignKey:'status_id'
+  Status.hasMany(Machine, {
+    foreignKey: 'status_id'
   });
+
+  module.exports={ Apartment, Complex, CycleType, DryerSettings, DryLevel, Employee, Machine, Management, Reservation, Role, User, WasherSettings, Status }
