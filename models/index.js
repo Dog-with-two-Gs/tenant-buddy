@@ -120,7 +120,7 @@ Machine - Reservation
 
 //Washer Settings - Cycle Type
   //Washer Settings hasMany CycleType
-  Machine.hasMany(CycleType, {
+  Machine.belongsToMany(CycleType, {
     through: WasherSettings
   })
 
@@ -131,7 +131,7 @@ Machine - Reservation
 
 //Dryer Settings - Dry Level
   //Dryer Settings hasMany Dry Level
-  Machine.hasMany(DryLevel, {
+  Machine.belongsToMany(DryLevel, {
     through: DryerSettings
   });
 
