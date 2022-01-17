@@ -20,11 +20,11 @@ Employee.init(
         allowNull: false,
     },
     contact_number: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
 
-    company_id: {
+    management_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

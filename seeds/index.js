@@ -35,6 +35,18 @@ const seedDatabase = async () => {
         return: true,
     });
 
+    for (const employee of employeeData) {
+        const currentEmployee = await Employee.create({
+            ...employee,
+            contact_number: casual.phone,
+            management_id: management[Math.floor(Math.random() * management.length)].id,
+            role_id:role[Math.floor(Math.random() * role.length)].id,
+        });
+    };
+    // const employee = await Employee.bulkCreate(employeeData, {
+    //     contact_number: casual.phone,
+    // });
+
     // let userArray = [];
 
     // for (let i = 0; i < 3; i++) {
