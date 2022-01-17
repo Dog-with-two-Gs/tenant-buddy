@@ -33,7 +33,7 @@ DryerSettings.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'dryerSettings',
+    modelName: 'dryer_settings',
   }
 );
 

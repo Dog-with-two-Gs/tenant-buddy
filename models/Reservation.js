@@ -27,7 +27,7 @@ Reservation.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'tenant',
+            model: 'user',
             key: 'id'
         }
     },

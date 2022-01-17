@@ -15,11 +15,11 @@ Apartment.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    building_id: {
+    complex_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: 'building',
+          model: 'complex',
           key: 'id'
       }
     },
