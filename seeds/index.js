@@ -13,22 +13,24 @@ const roleData = require('./roleData.json');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    
-
-    const userArray = [];
+    let userArray = [];
 
     for (let i = 0; i < 3; i++) {
         let user = {
+            "apartment_id": 1 + i,
             "firstname": casual.first_name,
             "lastname": casual.last_name,
             "phone_number": casual.phone,
             "email": casual.email,
-            "password": casual.password
-        }
-        userArray.push(user[i]);
+            "password": `password${i}`
+        };
+        userArray.push(user);
     }
 
-    const users = await User.bulkcreate(userArray, {
+    console.log("User Array:")
+    console.log(userArray);
+
+    const users = await User.bulkCreate(userArray, {
         individualHooks: true,
         return: true,
     });
