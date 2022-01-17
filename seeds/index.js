@@ -30,6 +30,11 @@ const seedDatabase = async () => {
         return: true,
     });
 
+    const role = await Role.bulkCreate(roleData, {
+        individualHooks: true,
+        return: true,
+    });
+
     // let userArray = [];
 
     // for (let i = 0; i < 3; i++) {
