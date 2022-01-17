@@ -18,6 +18,12 @@ const seedDatabase = async () => {
         return: true,
     });
 
+    const dryLevel = await DryLevel.bulkCreate(dryLevelData, {
+        individualHooks: true,
+        return: true,
+    });
+    
+
     // let userArray = [];
 
     // for (let i = 0; i < 3; i++) {
