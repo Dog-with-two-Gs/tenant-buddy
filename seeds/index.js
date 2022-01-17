@@ -13,6 +13,7 @@ const roleData = require('./roleData.json');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
+    // Phase 1
     const cycleType = await CycleType.bulkCreate(cycleTypeData, {
         individualHooks: true,
         return: true,
@@ -22,7 +23,12 @@ const seedDatabase = async () => {
         individualHooks: true,
         return: true,
     });
-    
+
+    // Phase 2
+    const management = await Management.bulkCreate(managementData, {
+        individualHooks: true,
+        return: true,
+    });
 
     // let userArray = [];
 
