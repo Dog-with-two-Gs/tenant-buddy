@@ -1,46 +1,57 @@
 [
   {
     "firstname": "Butters",
-    "lastname": "Utonium"
+    "lastname": "Utonium",
+    "role_id": 3
   },
   {
     "firstname": "Blossom",
-    "lastname": "Utonium"
+    "lastname": "Utonium",
+    "role_id": 4
   },
   {
     "firstname": "Buttercup",
-    "lastname": "Utonium"
+    "lastname": "Utonium",
+    "role_id": 1
   },
   {
     "firstname": "Professor",
-    "lastname": "Utonium"
+    "lastname": "Utonium",
+    "role_id": 4
   },
   {
     "firstname": "Mojo",
-    "lastname": "Jojo"
+    "lastname": "Jojo",
+    "role_id": 3
   },
   {
     "firstname": "His",
-    "lastname": "Infernal Majesty"
+    "lastname": "Infernal Majesty",
+    "role_id": 1
   },
   {
     "firstname": "Princess",
-    "lastname": "Morbucks"
+    "lastname": "Morbucks",
+    "role_id": 2
   },
   {
     "firstname": "Brick",
-    "lastname": "Jojo"
+    "lastname": "Jojo",
+    "role_id": 3
   },
   {
     "firstname": "Boomer",
-    "lastname": "Jojo"
+    "lastname": "Jojo",
+    "role_id": 3
   },
   {
     "firstname": "Butch",
-    "lastname": "Jojo"
+    "lastname": "Jojo",
+    "role_id": 3
   },
   {
     "firstname": "Mayor",
-    "lastname": "Of Townsville"
+    "lastname": "Of Townsville",
+    "role_id": 4
   }
 ]

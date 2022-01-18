@@ -40,9 +40,14 @@ const seedDatabase = async () => {
             ...employee,
             contact_number: casual.phone,
             management_id: management[Math.floor(Math.random() * management.length)].id,
-            role_id:role[Math.floor(Math.random() * role.length)].id,
         });
     };
+
+    const complex = await Complex.bulkCreate(complexData, {
+        individualHooks: true,
+        return: true,
+    });
+    
     // const employee = await Employee.bulkCreate(employeeData, {
     //     contact_number: casual.phone,
     // });

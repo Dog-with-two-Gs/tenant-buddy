@@ -2,16 +2,19 @@
     {
         "street_address": "1115 W 15th St",
         "city": "Chicago",
-        "state": "IL"
+        "state": "IL",
+        "employee_id": 2
     },
     {
         "street_address": "19279 NW 27th Ave",
         "city": "Miami",
-        "state": "FL"
+        "state": "FL",
+        "employee_id": 4
     },
     {
         "street_address": "1150 E St",
         "city": "San Diego",
-        "state": "CA"
+        "state": "CA",
+        "employee_id": 11
     }
 ]
