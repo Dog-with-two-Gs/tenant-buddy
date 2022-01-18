@@ -14,7 +14,6 @@ const statusData = require('./StatusData.json');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    // Phase 1
     const cycleType = await CycleType.bulkCreate(cycleTypeData, {
         individualHooks: true,
         return: true,
@@ -25,7 +24,6 @@ const seedDatabase = async () => {
         return: true,
     });
 
-    // Phase 2
     const management = await Management.bulkCreate(managementData, {
         individualHooks: true,
         return: true,
@@ -49,7 +47,6 @@ const seedDatabase = async () => {
         return: true,
     });
 
-    //Phase 3
     const status = await Status.bulkCreate(statusData, {
         individualHooks: true,
         return: true,
@@ -77,8 +74,6 @@ const seedDatabase = async () => {
             complex_id: casual.integer(from = 1, to = 3)
         });
     };
-
-    //Phase 4
 
     let userArray = [];
 
