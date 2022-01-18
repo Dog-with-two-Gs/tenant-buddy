@@ -1,0 +1,11 @@
+[
+    {
+        "type": "available"
+    },
+    {
+        "type": "reserved"
+    },
+    {
+        "type": "broken"
+    }
+]

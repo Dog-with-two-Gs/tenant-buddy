@@ -3,15 +3,80 @@ const { Apartment, Complex, CycleType, DryerSettings, DryLevel, Employee, Machin
 const casual = require('casual');
 
 const complexData = require('./complexData.json');
-const CycleTypeData = require('./cycleTypeData.json');
+const cycleTypeData = require('./cycleTypeData.json');
 const dryLevelData = require('./dryLevelData.json');
 const employeeData = require('./employeeData.json');
 const machineData = require('./machineData.json');
 const managementData = require('./managementData.json');
 const roleData = require('./roleData.json');
+const statusData = require('./StatusData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
+
+    const cycleType = await CycleType.bulkCreate(cycleTypeData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    const dryLevel = await DryLevel.bulkCreate(dryLevelData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    const management = await Management.bulkCreate(managementData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    const role = await Role.bulkCreate(roleData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    for (const employee of employeeData) {
+        const currentEmployee = await Employee.create({
+            ...employee,
+            contact_number: casual.phone,
+            management_id: management[Math.floor(Math.random() * management.length)].id,
+        });
+    };
+
+    const complex = await Complex.bulkCreate(complexData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    const status = await Status.bulkCreate(statusData, {
+        individualHooks: true,
+        return: true,
+    });
+
+    let apartmentArray = [];
+
+    for (let i = 0; i < 30; i++) {
+        let apartment = {
+            "occupants": casual.integer(from = 1, to = 5),
+            "complex_id": casual.integer(from = 1, to = 3),
+            "apartment_no": casual.integer(from = 1, to = 20)
+        }
+        apartmentArray.push(apartment);
+    };
+
+    const apartments = await Apartment.bulkCreate(apartmentArray, {
+        individualHooks: true,
+        return: true,
+    });
+
+    for (let i = 0; i < 3; i++){
+        for (const machine of machineData) {
+            const currentMachine = await Machine.create({
+                ...machine,
+                complex_id: casual.integer(from = 1, to = 3)
+            });
+        };
+    }
+    
 
     let userArray = [];
 
@@ -26,9 +91,6 @@ const seedDatabase = async () => {
         };
         userArray.push(user);
     }
-
-    console.log("User Array:")
-    console.log(userArray);
 
     const users = await User.bulkCreate(userArray, {
         individualHooks: true,

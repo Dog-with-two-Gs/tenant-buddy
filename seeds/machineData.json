@@ -1,22 +1,47 @@
 [
     {
         "type": "washer",
-        "size": "Small",
+        "size": "small",
         "opening": "front"
     },
     {
         "type": "washer",
-        "size": "Small",
+        "size": "small",
+        "opening": "top"
+    },
+    {
+        "type": "washer",
+        "size": "medium",
+        "opening": "front"
+    },
+    {
+        "type": "washer",
+        "size": "medium",
+        "opening": "top"
+    },
+    {
+        "type": "washer",
+        "size": "large",
+        "opening": "front"
+    },
+    {
+        "type": "washer",
+        "size": "large",
         "opening": "top"
     },
     {
         "type": "dryer",
-        "size": "Medium",
+        "size": "small",
         "opening": "front"
     },
     {
         "type": "dryer",
-        "size": "Large",
+        "size": "medium",
+        "opening": "front"
+    },
+    {
+        "type": "dryer",
+        "size": "large",
         "opening": "front"
     }
 ]

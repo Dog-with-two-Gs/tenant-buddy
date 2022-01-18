@@ -1,18 +1,18 @@
 [
   {
     "level": "Delicates",
-    "time": 30
+    "default_time": 30
   },
   {
     "level": "Low Heat",
-    "time": 40
+    "default_time": 40
   },
   {
     "level": "Medium Heat",
-    "time": 50
+    "default_time": 50
   },
   {
     "level": "High Heat",
-    "time": 60
+    "default_time": 60
   }
 ]
