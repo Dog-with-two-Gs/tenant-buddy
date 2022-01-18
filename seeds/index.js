@@ -9,6 +9,7 @@ const employeeData = require('./employeeData.json');
 const machineData = require('./machineData.json');
 const managementData = require('./managementData.json');
 const roleData = require('./roleData.json');
+const statusData = require('./StatusData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -47,7 +48,15 @@ const seedDatabase = async () => {
         individualHooks: true,
         return: true,
     });
+
+    //Phase 3
+    const status = await Status.bulkCreate(statusData, {
+        individualHooks: true,
+        return: true,
+    });
+
     
+
     // const employee = await Employee.bulkCreate(employeeData, {
     //     contact_number: casual.phone,
     // });
