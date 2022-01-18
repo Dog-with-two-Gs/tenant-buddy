@@ -6,7 +6,7 @@ const isAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            res.redirect('/profile');
+            res.redirect('/dashboard');
             return;
         } else res.render('homepage', {
         });
