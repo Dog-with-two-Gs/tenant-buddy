@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Reservation, Status, Machine } = require('../models');
+const { User, Reservation, Status, Machine } = require('../models');
 const isAuth = require('../utils/auth');
 
 // Get route for homepage
@@ -47,44 +47,43 @@ router.get('/signup', async (req, res) => {
 // GET route for profile page 
 router.get('/profile', isAuth, async (req, res) => {
     try {
-        if (!req.session.logged_in) {
-            res.redirect('/');
-            return;
-        } else {
-            const userData = await User.findByPk(req.session.user_id, {
-                attributes: { exclude: ['password'] },
-            });
 
-            const user = userData.get({ plain: true });
-            res.render('profile', {
-                ...user,
-                logged_in: req.session.logged_in,
-            })
-        }
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+        });
+
+        const user = userData.get({ plain: true });
+        res.render('profile', {
+            ...user,
+            logged_in: req.session.logged_in,
+        })
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
 router.get('/dashboard', isAuth, async (req, res) => {
+    console.log('hello')
+    // console.log(req.session.user_id)
     try {
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: ['firstname'],
-            include: {
-                model: Reservation,
-                include: {
-                    model: Machine,
-                    attributes: ['id', 'type', 'status_id'],
-                    include: {
-                        model: Status
-                    }
-                }
-            }
-        });
+        // const userData = await User.findByPk(req.session.user_id, {
+        //     attributes: ['firstname'],
+        //     include: {
+        //         model: Reservation,
+        //         include: {
+        //             model: Machine,
+        //             attributes: ['id', 'type', 'status_id'],
+        //             include: {
+        //                 model: Status
+        //             }
+        //         }
+        //     }
+        // });
 
-        const user = userData.get({plain: true});
+        // const user = userData.get({plain: true});
+        // console.log(user);
         res.render('dashboard', {
-            ...user,
+            // ...user,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
