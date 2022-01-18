@@ -68,12 +68,15 @@ const seedDatabase = async () => {
         return: true,
     });
 
-    for (const machine of machineData) {
-        const currentMachine = await Machine.create({
-            ...machine,
-            complex_id: casual.integer(from = 1, to = 3)
-        });
-    };
+    for (let i = 0; i < 3; i++){
+        for (const machine of machineData) {
+            const currentMachine = await Machine.create({
+                ...machine,
+                complex_id: casual.integer(from = 1, to = 3)
+            });
+        };
+    }
+    
 
     let userArray = [];
 
