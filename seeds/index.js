@@ -78,27 +78,26 @@ const seedDatabase = async () => {
         });
     };
 
-    // let userArray = [];
+    //Phase 4
 
-    // for (let i = 0; i < 3; i++) {
-    //     let user = {
-    //         "apartment_id": 1 + i,
-    //         "firstname": casual.first_name,
-    //         "lastname": casual.last_name,
-    //         "phone_number": casual.phone,
-    //         "email": casual.email,
-    //         "password": `password${i}`
-    //     };
-    //     userArray.push(user);
-    // }
+    let userArray = [];
 
-    // console.log("User Array:")
-    // console.log(userArray);
+    for (let i = 0; i < 3; i++) {
+        let user = {
+            "apartment_id": 1 + i,
+            "firstname": casual.first_name,
+            "lastname": casual.last_name,
+            "phone_number": casual.phone,
+            "email": casual.email,
+            "password": `password${i}`
+        };
+        userArray.push(user);
+    }
 
-    // const users = await User.bulkCreate(userArray, {
-    //     individualHooks: true,
-    //     return: true,
-    // });
+    const users = await User.bulkCreate(userArray, {
+        individualHooks: true,
+        return: true,
+    });
 
     process.exit(0);
 };
