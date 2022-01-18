@@ -55,12 +55,21 @@ const seedDatabase = async () => {
         return: true,
     });
 
-    
+    let apartmentArray = [];
 
-    // const employee = await Employee.bulkCreate(employeeData, {
-    //     contact_number: casual.phone,
-    // });
+    for (let i = 0; i < 30; i++) {
+        let apartment = {
+            "occupants": casual.integer(from = 1, to = 5),
+            "complex_id": casual.integer(from = 1, to = 3),
+            "apartment_no": casual.integer(from = 1, to = 20)
+        }
+        apartmentArray.push(apartment);
+    };
 
+    const apartments = await Apartment.bulkCreate(apartmentArray, {
+        individualHooks: true,
+        return: true,
+    })
     // let userArray = [];
 
     // for (let i = 0; i < 3; i++) {
