@@ -5,7 +5,10 @@ const router = require('express').Router();
 // Get route for homepage
 router.get('/', async (req, res) => {
     try {
-        res.render('homepage')
+        if(req.session.logged_in) {
+            res.redirect('/profile');
+            return;
+        } else res.render('homepage')
     } catch (err) {
         res.status(500).json(err);
     }
@@ -27,17 +30,29 @@ router.get('/login', async (req, res) => {
 });
 
 // Get route for signup page
-router.get('signup', async (req, res) => {
+router.get('/signup', async (req, res) => {
     try {
         if (req.session.logged_in) {
             res.redirect('/profile');
             return;
         } else {
-            res.render('signup')
+            res.render('signup');
         };
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+// GET route for profile page 
+router.get('/profile', async (req, res) => {
+    try {
+        if(!req.session.logged_in) {
+            res.direct('/login');
+            return;
+        } else res.render('profile');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;
