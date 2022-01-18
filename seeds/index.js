@@ -69,7 +69,15 @@ const seedDatabase = async () => {
     const apartments = await Apartment.bulkCreate(apartmentArray, {
         individualHooks: true,
         return: true,
-    })
+    });
+
+    for (const machine of machineData) {
+        const currentMachine = await Machine.create({
+            ...machine,
+            complex_id: casual.integer(from = 1, to = 3)
+        });
+    };
+
     // let userArray = [];
 
     // for (let i = 0; i < 3; i++) {
