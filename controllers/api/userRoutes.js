@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const { User } = require('../../models');
 const isAuth = require('../../utils/auth');
 
@@ -31,8 +30,6 @@ router.post('/login', async (req, res) => {
             where: { email: req.body.email }
         });
 
-        console.log(userData)
-
         if (!userData) {
             res
                 .status(400)
@@ -41,8 +38,6 @@ router.post('/login', async (req, res) => {
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
-
-        console.log(validPassword)
 
         if (!validPassword) {
             res

@@ -63,27 +63,24 @@ router.get('/profile', isAuth, async (req, res) => {
 })
 
 router.get('/dashboard', isAuth, async (req, res) => {
-    console.log('hello')
-    // console.log(req.session.user_id)
     try {
-        // const userData = await User.findByPk(req.session.user_id, {
-        //     attributes: ['firstname'],
-        //     include: {
-        //         model: Reservation,
-        //         include: {
-        //             model: Machine,
-        //             attributes: ['id', 'type', 'status_id'],
-        //             include: {
-        //                 model: Status
-        //             }
-        //         }
-        //     }
-        // });
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: ['firstname'],
+            include: {
+                model: Reservation,
+                include: {
+                    model: Machine,
+                    attributes: ['id', 'type', 'status_id'],
+                    include: {
+                        model: Status
+                    }
+                }
+            }
+        });
 
-        // const user = userData.get({plain: true});
-        // console.log(user);
+        const user = userData.get({plain: true});
         res.render('dashboard', {
-            // ...user,
+            ...user,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
