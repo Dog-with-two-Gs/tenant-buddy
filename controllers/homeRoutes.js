@@ -47,7 +47,7 @@ router.get('/signup', async (req, res) => {
 router.get('/profile', async (req, res) => {
     try {
         if(!req.session.logged_in) {
-            res.direct('/login');
+            res.direct('/');
             return;
         } else res.render('profile');
     } catch (err) {
