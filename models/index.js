@@ -102,7 +102,7 @@ Employee.hasMany(Complex, {
     foreignKey: 'user_id'
   });
 
-Machine - Reservation
+// Machine - Reservation
   //Machine BelongsToMany Reservations 
   Machine.hasMany(Reservation, {
     foreignKey: 'machine_id',

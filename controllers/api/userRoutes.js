@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 const { User } = require('../../models');
 const isAuth = require('../../utils/auth');
 
@@ -27,7 +28,12 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({
-            where: { email: req.body.email }
+            where: {
+                [Op.or]:
+                    [{ email: req.body.email },
+                    { phone_number: req.body.phone_number }
+                    ]
+            }
         });
 
         if (!userData) {
@@ -53,7 +59,7 @@ router.post('/login', async (req, res) => {
             res.json({ user: userData, message: 'You are now logged in!' });
         });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 

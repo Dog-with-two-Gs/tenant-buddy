@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Reservation, Status, Machine } = require('../models');
+const { User, Reservation, Status, Machine, Apartment, Complex } = require('../models');
 const isAuth = require('../utils/auth');
 
 // Get route for homepage
@@ -50,6 +50,15 @@ router.get('/profile', isAuth, async (req, res) => {
 
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
+            include: {
+                model: Apartment,
+                attributes: ['apartment_no'],
+                include: {
+                    model: Complex,
+                    attributes: ['street_address', 'city', 'state']
+
+                }
+            }
         });
 
         const user = userData.get({ plain: true });
