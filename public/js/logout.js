@@ -12,5 +12,5 @@ const logoutHandler = async (event) => {
 }
 
 document
-  .querySelector('.logout-button')
+  .querySelector('.nav-logout')
   .addEventListener('click', logoutHandler)
