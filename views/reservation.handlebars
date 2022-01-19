@@ -1,13 +1,17 @@
 <div class="justify-center align-space-around">
     <div>
     <h1 class="row justify-center">New Washer Reservation</h1>
-    <h4 class="row justify-center">Select from the machines available or schedule the use of a machine!</h4>
+    <h4 class="row justify-center">Hi {{firstname}} from apartment {{apartment.apartment_no}} at {{apartment.complex.street_address}}! Select from the machines available or schedule the use of a machine!</h4>
     </div>
     <br><br>
     <div class="row justify-center">
-    <div class="row col-5 justify-center">
-        <h3>Available Now</h3>
-        <div id="availablility"></div>
+    <div class="col-5 justify-center flex-column">
+        <h3 class="row justify-center">Available Now</h3>
+        <div class="" id="availablility">
+            {{#each apartment.complex.machines as |machine|}}
+                <div>{{size}} {{type}} is available.</div>
+            {{/each}}
+        </div>
     </div>
     <div class="row col-5 justify-center">
         <h3>Make a reservation</h3>
