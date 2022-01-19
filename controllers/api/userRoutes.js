@@ -63,12 +63,13 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.put('/:id', isAuth, async (req, res) => {
+router.put('/update', isAuth, async (req, res) => {
+    // console.log(req.body)
     try {
         const userData = await User.update(req.body,
             {
                 where: {
-                    id: req.params.id,
+                    id: req.session.user_id,
                 },
             },
         );

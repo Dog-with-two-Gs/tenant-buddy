@@ -1,11 +1,11 @@
 const loginButtonHandler = async (event) => {
   event.preventDefault();
-  document.location.assign('/login');
+  document.location.replace('/login');
 }
 
 const signupButtonHandler = async (event) => {
   event.preventDefault();
-  document.location.assign('/signup');
+  document.location.replace('/signup');
 }
 
 document
