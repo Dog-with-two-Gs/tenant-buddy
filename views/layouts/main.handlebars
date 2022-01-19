@@ -11,30 +11,37 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+  <div class="flex-column justify-space-around header-styling">
+    <header class ="justify-space-between align-center p-2">
+      <div class="display-flex">
+
+        <nav class="hamburger fas fa-bars"> 
+          <ul class="nav-menu">
+            {{#if logged_in}}
+            <li class="nav-item" href="#">Profile</li>
+            <li class="nav-item" href="#">Reservations</li>
+            {{/if}}
+            <li class="nav-item" href="#" >Contact</li>
+          </ul>
+
+          <span>
+            <h2 href="#" class="nav-title">Lighten Your Load</h2>
+          </span>
+        </nav>
+
+        {{#if logged_in}}
+        <span class="nav-logout">Logout</span>
+        {{/if}}
+
       </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="/profile" class="nav-link">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a href="/reservations" class="nav-link">Reservations</a>
-        </li>
-        <li class="nav-item">
-          <a href="/contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <a href="/" class="nav-logo">Lighten Your Load</a>
+    </header>
+  </div>
 
-    </nav>
-  </header>
   {{{body}}}
-
+  
+  {{#if logged_in}}
+  <script src="./js/logout.js"></script>
+  {{/if}}
   <script src="./js/main.js"></script>
 </body>
 

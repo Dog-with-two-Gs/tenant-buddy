@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tenant Buddy</title>
+  <link rel="stylesheet" href="./public/css/jass.css">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#" class="nav-logo">Lighten Your Load</a>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Reservations</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="justify-center align-space-around">
+      <div>
+        <h1 class="row justify-center">New Washer Reservation</h1>
+        <h4 class="row justify-center">Select from the machines available or schedule the use of a machine!</h4>
+      </div>
+      <br><br>
+      <div class="row justify-center">
+        <div class="row col-5 justify-center">
+          <h3>Available Now</h3>
+          <div id="availablility"></div>
+        </div>
+        <div class="row col-5 justify-center">
+          <h3>Make a reservation</h3>
+          <form class="form justify-center" id="reserve-machine">
+            <label for="reservation-time">Pick a Date and Time:</label>
+            <input class="form-input" type="datetime-local" id="reservation-time">
+            <button class="btn btn-primary" type="submit">Check availablility</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./public/js/reservation.js"></script>
+</body>
+
+</html>

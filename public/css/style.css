@@ -25,7 +25,13 @@ nav, .nav-logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
   padding: 0rem 0.75rem;
+=======
+  padding: 1rem 1.5rem;
+  z-index: 9999;
+  position: relative;
+>>>>>>> 56e43d8b734d5e4ac0d54de0ba38b99d51c740fb
 }
 
 .nav-logout {

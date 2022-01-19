@@ -4,34 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="./public/css/jass.css">
-  <link rel="stylesheet" href="./public/css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/jass.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/a932c6961f.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap" rel="stylesheet">
   <title>Tenant Buddy</title>
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="#" class="nav-logo">Lighten Your Load</a>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="#" class="nav-link">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Reservations</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+  <div class="flex-column justify-space-around header-styling">
+    <header class ="justify-space-between align-center p-2">
+      <div class="display-flex">
+        <nav class="hamburger fas fa-bars"> 
+          <ul class="nav-menu">
+            <li class="nav-item" href="#">Profile</li>
+            <li class="nav-item" href="#">Reservations</li>
+            <li class="nav-item" href="#" >Contact</li>
+          </ul>
+
+          <span><h2 href="#" class="nav-title">Lighten Your Load</h2></span>
+
+          <!-- <a class="nav-logo">Lighten Your Load</a> -->
+        </nav>
+        <span class="nav-logout">Logout</span>
       </div>
-    </nav>
-  </header>
+    </header>
+  </div>
+  <!-- </header> -->
   <main>
     <div>
         <button>
