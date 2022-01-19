@@ -9,7 +9,11 @@
         <h3 class="row justify-center">Available Now</h3>
         <div class="" id="availablility">
             {{#each apartment.complex.machines as |machine|}}
-                <div>{{size}} {{type}} is available.</div>
+                <form class="form available-machine-form">
+                    <div class="row">{{size}} {{type}} is available.</div>
+                    <p hidden id="machineId">{{id}}</p>
+                    <button class="btn row" type="submit">Reserve Now</button>
+                </form>
             {{/each}}
         </div>
     </div>
@@ -25,4 +29,4 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="./public/js/reservation.js"></script>
+<script src="./js/reservation.js"></script>
