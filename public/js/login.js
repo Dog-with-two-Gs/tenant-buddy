@@ -1,14 +1,21 @@
+function addDashes(f) {
+  f_val = f.replace(/\D[^\.]/g, "");
+  return f_val.slice(0, 3) + "-" + f_val.slice(3, 6) + "-" + f_val.slice(6);
+}
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#email-login').value.trim();
-  // const phone = document.querySelector('#phone-login').valuereplace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+  let email = document.querySelector('#email-login').value.trim();
+  let phone_number = addDashes(document.querySelector('#phone-login').value)
   const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+  if ((email || phone_number) && password) {
+    if (!email) email = null;
+    if (!phone_number) phone_number = null;
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, phone_number, password }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
