@@ -118,6 +118,7 @@ router.get('/reservation', async (req, res) => {
                     model: Complex,
                     include: {
                         model: Machine,
+                        where: {status_id: 1},
                     }
                 }
             }
