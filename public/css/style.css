@@ -13,13 +13,23 @@
   font-family: 'Lobster', cursive;
 }
 
+h2 {
+  margin-block-end:0px !important;
+  margin-bottom: 5px !important;
+}
 .header{
   border-bottom: 1px solid #E2E8F0;
+  z-index:999;
 }
 
 .header-styling {
   background-color: var(--red);
 }
+
+.fa-bars {
+  align-self:center;
+}
+
 nav, .nav-logout {
   font-size: 2.1rem;
   display: flex;
@@ -38,21 +48,24 @@ nav, .nav-logout {
   color: var(--mint);
   justify-items: space-between;
   text-shadow: 2px 3px var(--medium);
-  cursor: pointer;
-  width: 100%;
+  cursor: default;
+  /* width: 100%; */
+  z-index: 999;
 }
 
 
 .nav-menu {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
 
 }
 
 .nav-title {
-  display: inline-flex !important;
-  margin-left: 1rem !important;
+  display: inline !important;
+  margin-left: 0.75rem !important;
+  cursor: pointer;
+  float: left;
 }
 
 .nav-item{
@@ -74,7 +87,7 @@ nav, .nav-logout {
   .nav-menu {
       position: fixed;
       left: -100%;
-      top: 5rem;
+      top:60px;
       flex-direction: column;
       background-color: #fff;
       width: 100%;
@@ -102,4 +115,3 @@ nav, .nav-logout {
   }
 
 }
-
