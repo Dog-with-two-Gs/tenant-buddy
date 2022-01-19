@@ -6,39 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/a932c6961f.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tenant Buddy</title>
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="nav-menu">
-        {{#if logged_in}}
-        <li class="nav-item">
-          <a href="/profile" class="nav-link">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a href="/reservations" class="nav-link">Reservations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link logout-button">Logout</a>
-        </li>
-        {{/if}}
-        <li class="nav-item">
-          <a href="/contact" class="nav-link">Contact</a>
-        </li>
-      </ul>
-      <a href="/" class="nav-logo">Lighten Your Load</a>
+  <div class="flex-column justify-space-around header-styling">
+    <header class ="justify-space-between align-center p-2">
+      <div class="display-flex">
 
-    </nav>
-  </header>
+        <nav class="hamburger fas fa-bars"> 
+          <ul class="nav-menu">
+            {{#if logged_in}}
+            <li class="nav-item" href="/profile">Profile</li>
+            <li class="nav-item" href="/reservation">Reservations</li>
+            {{/if}}
+            <li class="nav-item" href="/contact" >Contact</li>
+          </ul>
+
+          <span>
+            <h2 href="#" class="nav-title">Lighten Your Load</h2>
+          </span>
+        </nav>
+
+        {{#if logged_in}}
+        <span class="nav-logout">Logout</span>
+        {{/if}}
+
+      </div>
+    </header>
+  </div>
+
   {{{body}}}
+  
   {{#if logged_in}}
   <script src="./js/logout.js"></script>
   {{/if}}
