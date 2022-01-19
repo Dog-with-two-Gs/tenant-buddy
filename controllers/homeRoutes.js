@@ -44,6 +44,16 @@ router.get('/signup', async (req, res) => {
     }
 });
 
+router.get('/update', isAuth, async(req, res) => {
+    try {
+        res.render('update', {
+            logged_in: req.session.logged_in,
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 // GET route for profile page 
 router.get('/profile', isAuth, async (req, res) => {
     try {

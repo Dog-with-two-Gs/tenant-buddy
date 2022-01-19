@@ -16,8 +16,6 @@ router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
-        console.log(userData)
-
         res.status(200).json(userData);
 
     } catch (err) {
@@ -63,12 +61,14 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.put('/:id', isAuth, async (req, res) => {
+router.put('/update', isAuth, async (req, res) => {
+    console.log(`Hellooooooooooo ${req.session.user_id}`);
+    // console.log(req.body)
     try {
         const userData = await User.update(req.body,
             {
                 where: {
-                    id: req.params.id,
+                    id: req.session.user_id,
                 },
             },
         );
