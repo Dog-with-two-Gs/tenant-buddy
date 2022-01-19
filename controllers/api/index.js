@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const reservationRoutes = require('.reservationRoutes');
+const reservationRoutes = require('./reservationRoutes');
 const userRoutes = require('./userRoutes');
 // const machineRoutes = require('/machineRoutes');
 
