@@ -20,8 +20,8 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: 'apartment',
-          key: 'id'
+        model: 'apartment',
+        key: 'id'
       }
     },
     firstname: {
@@ -29,26 +29,26 @@ User.init(
       allowNull: false,
     },
     lastname: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     phone_number: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
         isEmail: true,
-        },
+      },
     },
     password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [8]
-        }
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8]
+      }
     }
   },
   {
@@ -60,7 +60,7 @@ User.init(
       beforeUpdate: async (updatedUserData) => {
         console.log(updatedUserData)
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData; 
+        return updatedUserData;
       },
     },
     sequelize,

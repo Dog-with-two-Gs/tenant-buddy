@@ -20,7 +20,7 @@ const updateFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/update');
     } else {
       alert(response.statusText);
     }
