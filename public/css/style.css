@@ -15,6 +15,7 @@
 
 .header{
   border-bottom: 1px solid #E2E8F0;
+  z-index:999;
 }
 
 .header-styling {
@@ -38,21 +39,24 @@ nav, .nav-logout {
   color: var(--mint);
   justify-items: space-between;
   text-shadow: 2px 3px var(--medium);
-  cursor: pointer;
-  width: 100%;
+  cursor: default;
+  /* width: 100%; */
+  z-index: 999;
 }
 
 
 .nav-menu {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
 
 }
 
 .nav-title {
-  display: inline-flex !important;
+  display: inline !important;
   margin-left: 1rem !important;
+  cursor: pointer;
+  float: left;
 }
 
 .nav-item{
@@ -74,7 +78,7 @@ nav, .nav-logout {
   .nav-menu {
       position: fixed;
       left: -100%;
-      top: 5rem;
+      top:60px;
       flex-direction: column;
       background-color: #fff;
       width: 100%;
@@ -102,4 +106,3 @@ nav, .nav-logout {
   }
 
 }
-

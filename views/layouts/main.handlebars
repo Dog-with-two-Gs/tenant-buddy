@@ -22,19 +22,19 @@
         <nav class="hamburger fas fa-bars"> 
           <ul class="nav-menu">
             {{#if logged_in}}
-            <li class="nav-item" href="/profile">Profile</li>
-            <li class="nav-item" href="/reservation">Reservations</li>
-            {{/if}}
-            <li class="nav-item" href="/contact" >Contact</li>
+            <li class="nav-item"><a href="/profile">Profile</a></li>
+            <li class="nav-item" ><a href="/reservation">Reservations</a></li>
+            {{/if}} 
+            <li class="nav-item" ><a href="/contact">Contact</a></li>
           </ul>
 
-          <span>
-            <h2 href="#" class="nav-title">Lighten Your Load</h2>
-          </span>
         </nav>
 
+        <span>
+          <h2><a href="/" class="nav-title">Lighten Your Load</a></h2>
+        </span>
         {{#if logged_in}}
-        <span class="nav-logout">Logout</span>
+        <span class="nav-logout" href="/">Logout</span>
         {{/if}}
 
       </div>
