@@ -9,15 +9,16 @@ reserveTime.setAttribute('max', `${weekTime}`);
 const reserveNowHandler = async (event) => {
     event.preventDefault();
 
-    const machine_id = document.querySelector('#hiddenId');
+    const machine_id = document.querySelector('#machineId').innerHTML;
     const created_at = currentTime;
     const started_at = currentTime;
     const reserve_time = currentTime;
 
+    console.log(machine_id)
     if (machine_id && created_at && started_at && reserve_time) {
         const response = await fetch(`/api/reservation`, {
             method: 'POST',
-            body: JSON.stringify({machine_id, created_at, started_at, reserve_time}),
+            body: JSON.stringify({ machine_id, created_at, started_at, reserve_time }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -26,7 +27,7 @@ const reserveNowHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to create reservation.')
+            alert(response.statusText)
         };
     };
 };

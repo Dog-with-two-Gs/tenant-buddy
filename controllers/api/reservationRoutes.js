@@ -10,6 +10,8 @@ router.post('/', isAuth, async (req, res) => {
             ...req.body,
             user_id: req.session.user_id,
         });
+
+        res.status(200).json(reservationData);
     } catch (err) {
         res.status(400).json(err);
     };
