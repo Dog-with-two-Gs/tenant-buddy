@@ -9,9 +9,8 @@
         <h3 class="row justify-center">Available Now</h3>
         <div class="" id="availablility">
             {{#each apartment.complex.machines as |machine|}}
-                <form class="form available-machine-form">
-                    <div class="row">{{size}} {{type}} is available.</div>
-                    <p hidden id="machineId">{{id}}</p>
+                <form class="form available-machine-form" id="{{id}}">
+                    <div class="row">{{size}} {{type}} {{id}} is available.</div>
                     <button class="btn row" type="submit">Reserve Now</button>
                 </form>
             {{/each}}
@@ -20,9 +19,9 @@
     <div class="row col-5 justify-center">
         <h3>Make a reservation</h3>
         <form class="form justify-center" id="reserve-machine">
-        <label for="reservation-time">Pick a Date and Time:</label>
-        <input class="form-input" type="datetime-local" id="reservation-time">
-        <button class="btn btn-primary" type="submit">Check availablility</button>
+            <label for="reservation-time">Pick a Date and Time:</label>
+            <input class="form-input" type="datetime-local" id="reservation-time">
+            <button class="btn btn-primary" type="submit">Check availablility</button>
         </form>
     </div>
     </div>
