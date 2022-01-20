@@ -12,27 +12,29 @@
   box-sizing: border-box;
   font-family: 'Lobster', cursive;
 }
+header{
+  border-bottom: 1px solid #E2E8F0;
+  z-index:999;
+  display: flex;
+  flex-direction: row;
+}
 
 h2 {
   margin-block-end:0px !important;
   margin-bottom: 5px !important;
 }
-.header{
-  border-bottom: 1px solid #E2E8F0;
-  z-index:999;
-}
 
-.header-styling {
-  background-color: var(--red);
-}
 
-.fa-bars {
-  align-self:center;
+
+/******************* NAV BAR *********************/
+
+.nav-styling {
+  background-color: var(--cream);
 }
 
 nav, .nav-logout {
   font-size: 2.1rem;
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
   padding: 0rem 0.75rem;
@@ -40,25 +42,19 @@ nav, .nav-logout {
 }
 
 .nav-logout {
-  color: var(--mint);
-  text-shadow: 2px 3px var(--medium);
-}
-.hamburger {
-  display: inline-flexbox !important;
-  color: var(--mint);
-  justify-items: space-between;
-  text-shadow: 2px 3px var(--medium);
-  cursor: default;
-  /* width: 100%; */
-  z-index: 999;
-}
-
-
-.nav-menu {
+  color: var(--dark-brown);
   display: flex !important;
-  justify-content: space-between;
-  align-items: center;
+  text-shadow: 2px 3px var(--medium);
+  float: inline-end !important;
+}
 
+.nav-logout-wrap {
+  display:flex;
+  justify-items:  flex-end;
+}
+
+.fa-bars {
+  align-self:center;
 }
 
 .nav-title {
@@ -68,6 +64,21 @@ nav, .nav-logout {
   float: left;
 }
 
+.hamburger {
+  display: inline-flexbox !important;
+  color: var(--mint);
+  justify-items: space-between;
+  text-shadow: 2px 3px var(--medium);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.nav-menu {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+
+}
 .nav-item{
   font-size: 1.6rem !important;
   font-weight: 400;
@@ -75,13 +86,16 @@ nav, .nav-logout {
   width: 100%;
   padding: 1rem;
   text-decoration: none;
+  list-style-type: none;
+  cursor: pointer;
 }
 
 .nav-item:hover{
-  color: #482ff7;
-  background-color: #101010;
+  /* color: #482ff7; */
+  /* background-color: #101010; */
 }
 
+/************* MEDIA QUERIES ****************/
 
 @media only screen {
   .nav-menu {
