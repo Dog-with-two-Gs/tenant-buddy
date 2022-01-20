@@ -23,7 +23,7 @@ h2 {
 }
 
 .header-styling {
-  background-color: var(--red);
+  background-color: var(--cream);
 }
 
 .fa-bars {
@@ -40,7 +40,7 @@ nav, .nav-logout {
 }
 
 .nav-logout {
-  color: var(--mint);
+  color: var(--cream);
   text-shadow: 2px 3px var(--medium);
 }
 .hamburger {
@@ -48,8 +48,7 @@ nav, .nav-logout {
   color: var(--mint);
   justify-items: space-between;
   text-shadow: 2px 3px var(--medium);
-  cursor: default;
-  /* width: 100%; */
+  cursor: pointer;
   z-index: 999;
 }
 
@@ -75,11 +74,13 @@ nav, .nav-logout {
   width: 100%;
   padding: 1rem;
   text-decoration: none;
+  list-style-type: none;
+  cursor: pointer;
 }
 
 .nav-item:hover{
-  color: #482ff7;
-  background-color: #101010;
+  /* color: #482ff7; */
+  /* background-color: #101010; */
 }
 
 
