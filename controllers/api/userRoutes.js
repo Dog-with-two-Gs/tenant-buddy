@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Op } = require('sequelize');
 const { User } = require('../../models');
 const isAuth = require('../../utils/auth');
+const bcrypt = require('bcrypt');
 
 router.get('/', isAuth, async (req, res) => {
     try {
@@ -62,9 +63,12 @@ router.post('/login', async (req, res) => {
 });
 
 router.put('/update', isAuth, async (req, res) => {
-    console.log(`Hellooooooooooo ${req.session.user_id}`);
-    // console.log(req.body)
     try {
+
+        if(req.body.password) {
+            req.body.password = await bcrypt.hash(req.body.password, 10);
+        }
+
         const userData = await User.update(req.body,
             {
                 where: {
