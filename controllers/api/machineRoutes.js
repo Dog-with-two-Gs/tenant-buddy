@@ -7,7 +7,7 @@ router.put('/:id', isAuth, async (req, res) => {
     try {
         const machineData = await Machine.update(
             {
-                status_id: 2,
+                status_id: req.body.status_id,
             },
             {
                 where: {

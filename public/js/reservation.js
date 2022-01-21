@@ -9,10 +9,11 @@ reserveTime.setAttribute('max', `${weekTime}`);
 const reserveNowHandler = async (event) => {
     event.preventDefault();
 
-    const machine_id = event.target.id
+    const machine_id = event.target.id;
     const created_at = currentTime;
     const started_at = currentTime;
     const reserve_time = currentTime;
+    const status_id = 2;
 
     if (machine_id && created_at && started_at && reserve_time) {
         const response = await fetch(`/api/reservation`, {
@@ -26,19 +27,19 @@ const reserveNowHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText)
+            alert(response.statusText);
         };
     };
 
-    if (machine_id) {
+    if (status_id) {
         const response = await fetch(`/api/machine/${machine_id}`, {
             method: 'PUT',
-            body: JSON.stringify({ machine_id }),
+            body: JSON.stringify({ status_id }),
             header: {
                 'Content-Type': 'application/json',
             },
         });
-    }
+    };
 };
 
 const reserveTimeHandler = async (event) => {
@@ -50,7 +51,6 @@ const reserveTimeHandler = async (event) => {
 
 document
   .querySelectorAll('.available-machine-form').forEach(button => {button.addEventListener('submit', reserveNowHandler)})
-  
 
 document
     .querySelector('#reserve-machine')
