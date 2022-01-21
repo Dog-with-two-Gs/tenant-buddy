@@ -1,7 +1,7 @@
 const reserveTime = document.querySelector('#reservation-time');
 
-var currentTime = moment().format("YYYY-MM-DDThh:mm");
-var weekTime = moment(currentTime).add(7, 'days').format("YYYY-MM-DDThh:mm");
+const currentTime = moment().format("YYYY-MM-DDThh:mm");
+const weekTime = moment(currentTime).add(7, 'days').format("YYYY-MM-DDThh:mm");
 
 reserveTime.setAttribute('min', `${currentTime}`);
 reserveTime.setAttribute('max', `${weekTime}`);
@@ -29,19 +29,29 @@ const reserveNowHandler = async (event) => {
             alert(response.statusText)
         };
     };
+
+    if (machine_id) {
+        const response = await fetch(`/api/machine/${machine_id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ machine_id }),
+            header: {
+                'Content-Type': 'application/json',
+            },
+        });
+    }
 };
 
-// const reserveTimeHandler = async (event) => {
-//     event.preventDefault();
+const reserveTimeHandler = async (event) => {
+    event.preventDefault();
+    
+    console.log(reserver);
 
-//     const reserver = document.querySelector('#reservation-time')
-
-// }
+}
 
 document
   .querySelectorAll('.available-machine-form').forEach(button => {button.addEventListener('submit', reserveNowHandler)})
   
 
-// document
-//     .querySelector('#reserve-machine')
-//     .addEventListener('submit', reserveTimeHandler)
+document
+    .querySelector('#reserve-machine')
+    .addEventListener('submit', reserveTimeHandler)
