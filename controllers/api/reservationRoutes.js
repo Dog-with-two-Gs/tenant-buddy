@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const{ Reservation, Machine } = require('../../models');
+const{ Reservation } = require('../../models');
 const isAuth = require('../../utils/auth')
 
 // Make GET, CREATE, PUT, DELETE routes
