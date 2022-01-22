@@ -56,15 +56,15 @@ const reserveTimeHandler = async (event) => {
 
     const selectTime = moment(document.querySelector('#reservation-time').value);
 
-    const test = selectTime.format("YYYY-MM-DD HH:mm:ss");
-    const test2 = test.replaceAll(':', 'C').replaceAll('-', 'D').replace(' ', 'S')
+    const reserve_time = selectTime.format("YYYY-MM-DD HH:mm:ss").replaceAll(':', 'C').replaceAll('-', 'D').replace(' ', 'S');
 
-    console.log(test)
+
+    // console.log(test)
     // console.log(selectTime)
     // console.log(test)
 
-       if(selectTime) document.location.replace(`/futureres/${test2}`);
-    
+    if (selectTime) document.location.replace(`/futureres/${reserve_time}`);
+
 }
 
 init();
