@@ -119,7 +119,7 @@ router.get('/reservation', async (req, res) => {
                     include: {
                         model: Machine,
                         where: {status_id: 1},
-                    }
+                    } 
                 }
             }
         });
@@ -138,32 +138,36 @@ router.get('/reservation', async (req, res) => {
 // get route for contact page
 router.get('/contact', async (req, res) => {
     try {
-        const managerData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: {
-                model: Apartment,
+        if (req.session.user_id) {
+            const managerData = await User.findByPk(req.session.user_id, {
+                attributes: { exclude: ['password'] },
                 include: {
-                    model: Complex,
+                    model: Apartment,
                     include: {
-                        model: Employee,
-                        where: { role_id: 4 },
+                        model: Complex,
                         include: {
-                            model: Management,
-                        }
+                            model: Employee,
+                            where: { role_id: 4 },
+                            include: {
+                                model: Management,
+                            },
+                        },
                     },
                 },
-            },
-        });
-
-        const manager = managerData.get({ plain: true });
-
-        res.render('contact', {
-            ...manager,
-            logged_in: true,
-        });1
+            });
+    
+            const manager = managerData.get({ plain: true });
+    
+            res.render('contact', {
+                ...manager,
+                logged_in: req.session.logged_in,
+            });
+        } else {
+            res.render('contact')
+        }
     } catch (err) {
         res.status(500).json(err);
-    }
-})
+    };
+});
 
 module.exports = router;
