@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Reservation, Status, Machine, Apartment, Complex } = require('../models');
+const { User, Reservation, Status, Machine, Apartment, Complex, Employee, Management } = require('../models');
 const isAuth = require('../utils/auth');
 
 // Get route for homepage
@@ -135,5 +135,35 @@ router.get('/reservation', async (req, res) => {
     }
 });
 
+// get route for contact page
+router.get('/contact', async (req, res) => {
+    try {
+        const managerData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: {
+                model: Apartment,
+                include: {
+                    model: Complex,
+                    include: {
+                        model: Employee,
+                        where: { role_id: 4 },
+                        include: {
+                            model: Management,
+                        }
+                    },
+                },
+            },
+        });
+
+        const manager = managerData.get({ plain: true });
+
+        res.render('contact', {
+            ...manager,
+            logged_in: true,
+        });1
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;
