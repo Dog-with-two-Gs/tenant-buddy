@@ -16,13 +16,14 @@ const reserveNowHandler = async (event) => {
     const machine_id = event.target.id;
     const created_at = currentTime;
     const started_at = currentTime;
-    const reserve_time = moment(currentTime).add(1, "hour").add(15, 'minutes')//.format("YYYY-MM-DDThh:mm");
+    const reserve_time = moment(currentTime).add({hours: 1, minutes: 15})//.format("YYYY-MM-DDThh:mm");
     const expire_at = moment(currentTime).add(15, "minutes")//.format("YYYY-MM-DDThh:mm");
+    const is_complete = false;
 
     if (machine_id && created_at && started_at && reserve_time && expire_at) {
         const response = await fetch(`/api/reservation`, {
             method: 'POST',
-            body: JSON.stringify({ machine_id, created_at, started_at, reserve_time, expire_at }),
+            body: JSON.stringify({ machine_id, created_at, started_at, reserve_time, expire_at, is_complete }),
             headers: {
                 'Content-Type': 'application/json',
             },
