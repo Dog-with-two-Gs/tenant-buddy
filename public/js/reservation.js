@@ -53,8 +53,7 @@ const reserveNowHandler = async (event) => {
 
 const reserveTimeHandler = async (event) => {
     event.preventDefault();
-    
-    console.log(reserver);
+
 
 }
 
