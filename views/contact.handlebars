@@ -1,0 +1,24 @@
+<div class="contact">
+    <div>
+        <h3>Contact Information</h3>
+    </div>
+    <br>
+
+    <div>
+        <div>
+            {{#if logged_in}}
+            <div>{{apartment.complex.street_address}} {{apartment.complex.city}}, {{apartment.complex.state}} {{apartment.complex.zip}}</div>
+            <br>
+            <div>Property Manager</div>
+            <h4>{{apartment.complex.employee.firstname}} {{apartment.complex.employee.lastname}}</h4>
+            <div>{{apartment.complex.employee.management.name}}</div>
+            <div>{{apartment.complex.employee.contact_number}}</div>
+            {{/if}}
+        </div>
+        <br>
+        <div>
+            <div>Dibz Hotline:</div>
+            <h3>707 984-5511</h3>
+        </div>
+    </div>
+</div>

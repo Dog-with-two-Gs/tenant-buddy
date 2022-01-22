@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 const moment  = require('moment');
-const { User, Reservation, Status, Machine, Apartment, Complex } = require('../models');
+const { User, Reservation, Status, Machine, Apartment, Complex, Employee, Management } = require('../models');
 const isAuth = require('../utils/auth');
 
 // Get route for homepage
@@ -120,8 +120,8 @@ router.get('/reservation', isAuth, async (req, res) => {
                     model: Complex,
                     include: {
                         model: Machine,
-                        where: { status_id: 1 },
-                    }
+                        where: {status_id: 1},
+                    } 
                 }
             }
         });
@@ -136,6 +136,7 @@ router.get('/reservation', isAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
 
 router.get('/futureres/:time', isAuth, async (req, res) => {
     // const request_time = req.params.time.replaceAll('C', ':').replaceAll('S', 'T').replaceAll('D', '-');
@@ -197,6 +198,42 @@ router.get('/futureres/:time', isAuth, async (req, res) => {
         res.status(400).json(err)
     }
 })
+
+
+// get route for contact page
+router.get('/contact', async (req, res) => {
+    try {
+        if (req.session.user_id) {
+            const managerData = await User.findByPk(req.session.user_id, {
+                attributes: { exclude: ['password'] },
+                include: {
+                    model: Apartment,
+                    include: {
+                        model: Complex,
+                        include: {
+                            model: Employee,
+                            where: { role_id: 4 },
+                            include: {
+                                model: Management,
+                            },
+                        },
+                    },
+                },
+            });
+    
+            const manager = managerData.get({ plain: true });
+    
+            res.render('contact', {
+                ...manager,
+                logged_in: req.session.logged_in,
+            });
+        } else {
+            res.render('contact')
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
 
 
 module.exports = router;

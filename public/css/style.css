@@ -109,6 +109,14 @@ nav, .nav-logout {
   margin: 1px var(--light-brown) !important;
 }
 
+.contact{
+  display: flex;
+  margin-top: 25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /************* MEDIA QUERIES ****************/
 
