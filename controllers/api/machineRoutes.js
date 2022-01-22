@@ -3,11 +3,11 @@ const { Machine } = require('../../models');
 const isAuth = require('../../utils/auth')
 
 // PUT route for status_id
-router.put('/:id', isAuth, async (req, res) => {
+router.put('/reserve/:id', isAuth, async (req, res) => {
     try {
         const machineData = await Machine.update(
             {
-                status_id: req.body.status_id,
+                status_id: 2,
             },
             {
                 where: {

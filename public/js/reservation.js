@@ -1,44 +1,53 @@
-const reserveTime = document.querySelector('#reservation-time');
-
-const currentTime = moment().format("YYYY-MM-DDThh:mm");
-const weekTime = moment(currentTime).add(7, 'days').format("YYYY-MM-DDThh:mm");
-
-reserveTime.setAttribute('min', `${currentTime}`);
-reserveTime.setAttribute('max', `${weekTime}`);
+const init = () => {
+    const reserveTime = document.querySelector('#reservation-time');
+    
+    const currentTime = moment().format("YYYY-MM-DDThh:mm");
+    const weekTime = moment(currentTime).add(7, 'days').format("YYYY-MM-DDThh:mm");
+    
+    reserveTime.setAttribute('min', `${currentTime}`);
+    reserveTime.setAttribute('max', `${weekTime}`);
+};
 
 const reserveNowHandler = async (event) => {
     event.preventDefault();
+
+    const currentTime = moment().format("YYYY-MM-DDThh:mm");
 
     const machine_id = event.target.id;
     const created_at = currentTime;
     const started_at = currentTime;
     const reserve_time = currentTime;
-    const status_id = 2;
+    const expire_at = moment(currentTime).add(60, "minutes").format("YYYY-MM-DDThh:mm");
 
-    if (machine_id && created_at && started_at && reserve_time) {
+    if (machine_id && created_at && started_at && reserve_time && expire_at) {
         const response = await fetch(`/api/reservation`, {
             method: 'POST',
-            body: JSON.stringify({ machine_id, created_at, started_at, reserve_time }),
+            body: JSON.stringify({ machine_id, created_at, started_at, reserve_time, expire_at }),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            // document.location.reload();
         } else {
             alert(response.statusText);
         };
     };
 
-    if (status_id) {
-        const response = await fetch(`/api/machine/${machine_id}`, {
+    if (machine_id) {
+        const response = await fetch(`/api/machine/reserve/${machine_id}`, {
             method: 'PUT',
-            body: JSON.stringify({ status_id }),
             header: {
                 'Content-Type': 'application/json',
             },
         });
+
+        if (response.ok) {
+            document.location.reload();
+        } else {
+            alert(response.statusText);
+        };
     };
 };
 
@@ -48,6 +57,8 @@ const reserveTimeHandler = async (event) => {
     console.log(reserver);
 
 }
+
+init();
 
 document
   .querySelectorAll('.available-machine-form').forEach(button => {button.addEventListener('submit', reserveNowHandler)})
