@@ -11,13 +11,13 @@ const init = () => {
 const reserveNowHandler = async (event) => {
     event.preventDefault();
 
-    const currentTime = moment()//.format("YYYY-MM-DDThh:mm");
+    const currentTime = moment()
 
     const machine_id = event.target.id;
     const created_at = currentTime;
     const started_at = currentTime;
-    const reserve_time = moment(currentTime).add({ hours: 0, minutes: 1 })//.format("YYYY-MM-DDThh:mm");
-    const expire_at = moment(currentTime).add(15, "minutes")//.format("YYYY-MM-DDThh:mm");
+    const reserve_time = moment(currentTime).add({ hours: 0, minutes: 1 })
+    const expire_at = moment(currentTime).add(15, "minutes")
     const is_complete = false;
 
     if (machine_id && created_at && started_at && reserve_time && expire_at) {
@@ -30,7 +30,7 @@ const reserveNowHandler = async (event) => {
         });
 
         if (response.ok) {
-            // document.location.reload();
+            console.log('Pat is great!')
         } else {
             alert(response.statusText);
         };
