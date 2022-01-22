@@ -21,11 +21,9 @@ WHEN I select the Profile tab
 THEN I am directed to a page which displays my account information (name, contact info, etc.);
 WHEN I select the Reservation tab
 THEN I am directed to a New Reservation page
-THEN I am presented with the options for washers and dryers available now and drop down menus to search start time for washers and dryers
+THEN I am presented with the options for washers and dryers available now 
 WHEN I select a washer or dryer from washers/dryers available
 THEN the selected washer/dryer will disappear from the page to confirm my reservation
-WHEN I select start time from the drop down menus and click the search button
-THEN the washers that are available at those times will be displayed and I may select one;
 WHEN I select the Contact tab
 THEN I am directed to the Contact Page which displays the complex's address and property management information;
 WHEN I click on the sign up option
@@ -37,9 +35,7 @@ THEN I am prompted to enter my username and password
 WHEN I am signed in to the site
 THEN I see the dashboard page, which includes laundry, tool rental and parking management buttons and my reservation status, notifications and a message board. 
 WHEN I click on the laundry button on the dashboard page
-THEN I am directed to the Create Reservation page, which includes buttons to choose washers or dryers and a drop down menu for reservation times
-WHEN I select a time and click on the Washer or Dryer button
-THEN I am directed to the Available page which includes a list of machines available at/around the requested time; 
+THEN I am directed to the Create Reservation page, which includes buttons to choose washers or dryers
 WHEN I select a washer or dryer from Machines Available Now on the Create Reservation page 
 THEN the selected washer/dryer will disappear from the page to confirm my reservation
 ```
