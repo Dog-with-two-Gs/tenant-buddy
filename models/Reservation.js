@@ -10,7 +10,8 @@ Reservation.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },  
+    },
+    // When reservation was created
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -27,21 +28,25 @@ Reservation.init(
       type: DataTypes.DATE,
       allowNull: false
     },
+    is_complete: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'user',
-            key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     },
     machine_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'machine',
-            key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'machine',
+        key: 'id'
+      }
     },
   },
   {
