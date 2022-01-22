@@ -5,7 +5,7 @@
   --light-brown:rgb(192,136,88);
   --dark-brown: rgb(162,118,91);
 
-  --cream-opactiy: rgb(218,217,185,0.8);
+  --cream-opactiy: rgb(218,217,185,0.9);
   --dark-blue-opacity: rgb(29,61,61,0.7);
   --dark-brown-opacity: rgb(162,118,91,0.7);
 
@@ -44,14 +44,6 @@ h2 {
 html, body {
   height:100% !important;
 
-}
-body {
-  background: url("../images/homepage-background.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* position: relative; */
-  background-attachment: fixed;
 }
 
 /******************* NAV BAR *********************/
@@ -188,8 +180,14 @@ nav, .nav-logout {
 /******************* SIGN UP/ LOGIN HNDLEBARS *********************/
 
 .signup-outer-shell, .login-outer-shell {
+  background: url("../images/homepage-background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
+  background-attachment: fixed;
   height: 100%;
-  backdrop-filter: blur(5px);
+
 
 }
 
@@ -203,6 +201,7 @@ nav, .nav-logout {
   top: 15%;
   left: 25%; 
   box-shadow: 0px 0px 50px 15px black;
+  backdrop-filter: blur(5px);
  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 }
 
@@ -221,7 +220,118 @@ nav, .nav-logout {
 }
 
 
+/************************DASHBOARD*************************/
 
+.dashboard-outer-shell {
+  background: url("../images/homepage-background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  /* position: relative; */
+  background-attachment: fixed;
+/*  */
+  height:100%;
+}
+
+.dash-mid-shell {
+  backdrop-filter: blur(5px);
+  height: 100%;
+}
+.dashboard-inner-shell {
+  /* border: 5px solid var(--dark-blue); */
+  color: var(--cream);
+  /* height: 100%; */
+  /* backdrop-filter: blur(5px); */
+  height: 50%;
+  margin-top: 1rem;
+}
+
+/* .dashboard-inner-shel  */
+
+.dash-top-row {
+  padding-top: 3.5rem;
+  /* height:55%; */
+}
+.dash-bottom-row {
+
+}
+
+.dash-top-row button {
+  height: 100%;
+  border: none;
+  width: 100%;
+  /* padding: 0px; */
+  background-color: var(--dark-blue-opacity);
+  text-shadow: 2px 2px var(--dark-blue);
+  color: var(--mint);
+}
+.dash-top-row, .dash-bottom-row {
+  margin: 0rem 3.5rem;
+  /* margin-right: 3.5rem; */
+  padding-top: 4rem;
+}
+.laundry-button, .tool-button, .parking-button {
+  border: 5px white solid;
+  margin: 0rem 3rem;
+  padding: 0px;
+  height: 95%;
+  /* width: 30%; */
+  font-size: xx-large;
+  font-family: var(--font-perm-mark);
+  border: 5px solid var(--cream);
+  box-shadow: 0px 0px 30px 10px black;
+
+  
+}
+
+
+.dash-reservation-status {
+  height: 100%;
+  background-color: var(--cream-opactiy);
+  color: var(--dark-blue);
+  
+  box-shadow: 0px 0px 30px 5px black;
+}
+
+.dash-reservation-status h2, .dash-reservation-status h3 {
+  font-family: var(--font-perm-mark);
+  padding: 1rem;
+  text-shadow: 2px 2px var(--mint);
+}
+.dash-reservation-status, .notification-center, .message-board {
+  border:5px solid var(--dark-blue);
+}
+
+.notification-center, .message-board {
+  padding: 1rem;
+  background-color: var(--dark-brown-opacity);
+  /* margin: 0rem 2rem; */
+  
+  height: 50%;
+}
+.notification-center {
+  margin-bottom: 10%;
+  height:25%;
+}
+
+.out-not-mess h2, .out-not-mess h4{
+  font-family: var(--font-perm-mark);
+  color: var(--cream);
+  text-shadow: 2px 2px var(--light-brown);
+}
+
+.out-not-mess li {
+  font-family: var(--font-overpass);
+  color: var(--cream);
+  list-style-type: none;
+  border-bottom: 1px solid var(--cream);
+  padding: 2px 0px;
+}
+/* .out-not-mess {
+  height: 100%;
+  /* display:flex;
+  flex-wrap: wrap; */ 
+/* } */
 /*********************** ON HOVER ****************************/
 
 .nav-item:hover{
