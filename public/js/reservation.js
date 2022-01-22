@@ -4,8 +4,8 @@ const init = () => {
     const currentTime = moment().format("YYYY-MM-DDThh:mm");
     const weekTime = moment(currentTime).add(7, 'days').format("YYYY-MM-DDThh:mm");
 
-    reserveTime.setAttribute('min', `${currentTime}`);
-    reserveTime.setAttribute('max', `${weekTime}`);
+    // reserveTime.setAttribute('min', `${currentTime}`);
+    // reserveTime.setAttribute('max', `${weekTime}`);
 };
 
 const reserveNowHandler = async (event) => {
@@ -63,6 +63,6 @@ init();
 document
     .querySelectorAll('.available-machine-form').forEach(button => { button.addEventListener('submit', reserveNowHandler) })
 
-document
-    .querySelector('#reserve-machine')
-    .addEventListener('submit', reserveTimeHandler)
+// document
+//     .querySelector('#reserve-machine')
+//     .addEventListener('submit', reserveTimeHandler)
