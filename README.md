@@ -12,30 +12,34 @@ This app was created for property managers to offer services to renters, startin
 ```md
 GIVEN a CMS-style webpage,
 WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes sign up and login buttons.
+THEN I am presented with the homepage, which includes a navigation bar which includes a logout button, as well as sign up and login buttons
+WHEN I click on the Navigation bar
+THEN Profile, Reservation and Contact tabs appear
+WHEN I select the Profile tab
+THEN I am directed to a page which displays my account information (name, contact info, etc.);
+WHEN I select the Reservation tab
+THEN I am directed to a New Reservation page
+THEN I am presented with the options for washers and dryers available now and drop down menus to search start time for washers and dryers
+WHEN I select a washer or dryer from washers/dryers available
+THEN the selected washer/dryer will disappear from the page to confirm my reservation
+WHEN I select start time from the drop down menus and click the search button
+THEN the washers that are available at those times will be displayed and I may select one;
+WHEN I select the Contact tab
+THEN I am directed to the Contact Page which displays the complex's address and property management information;
 WHEN I click on the sign up option
-THEN I am prompted to create a username and password
+THEN I am prompted to create a username and password;
 WHEN I click on the sign-up button
 THEN my user credentials are saved and I am logged into the site
 WHEN I revisit the site at a later time and choose to sign in
 THEN I am prompted to enter my username and password
 WHEN I am signed in to the site
-THEN I see navigation bar, and the option to log out
 THEN I see the dashboard page, which includes laundry, tool rental and parking management buttons and my reservation status, notifications and a message board. 
 WHEN I click on the laundry button on the dashboard page
-THEN I am taken to the Lighten Your Load laundry page, which includes buttons to choose washers or dryers and a manage reservation button
-WHEN I click on create washer reservation 
-THEN I am presented with the options for washers available now and drop down menus to search start and end times 
-WHEN I select a washer from washers available
-THEN the selected washer will disappear from the page to confirm my reservation
-WHEN I select start and end times from the drop down menus and click the search button
-THEN the washers that are available at those times will be displayed and I may select one
-WHEN I click on create dryer reservation 
-THEN I am presented with the options for dryers available now and drop down menus to search start and end times 
-WHEN I select a dryer from dryers available
-THEN the selected dryer will disappear from the page to confirm my reservation
-WHEN I select start and end times from the drop down menus and click the search button
-THEN the washers that are available at those times will be displayed and I may select one
+THEN I am directed to the Create Reservation page, which includes buttons to choose washers or dryers and a drop down menu for reservation times
+WHEN I select a time and click on the Washer or Dryer button
+THEN I am directed to the Available page which includes a list of machines available at/around the requested time; 
+WHEN I select a washer or dryer from Machines Available Now on the Create Reservation page 
+THEN the selected washer/dryer will disappear from the page to confirm my reservation
 ```
 
 
