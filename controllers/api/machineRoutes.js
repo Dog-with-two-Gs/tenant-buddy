@@ -32,6 +32,7 @@ router.put('/reserve/:id', isAuth, async (req, res) => {
 // Gets called in every init to update machine status
 router.put('/free', async (req, res) => {
     try {
+        console.log('hello')
         const currentTime = moment().utc();
         // const machineData = await Machine.findAll({
         const machineData = await Machine.findAll({
@@ -45,7 +46,7 @@ router.put('/free', async (req, res) => {
                             }
                         },
                         {
-                            is_complete: false,
+                            is_complete: true,
                         },
                     ]
                 }

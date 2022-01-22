@@ -22,6 +22,7 @@ router.post('/', isAuth, async (req, res) => {
 // Gets called in every init to update reservation status
 router.put('/', async (req, res) => {
     try {
+        console.log('heloooooooo')
         const currentTime = moment().utc();
         const reservationData = await Reservation.update({
             is_complete: true,
