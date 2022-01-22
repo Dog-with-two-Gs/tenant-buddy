@@ -11,18 +11,22 @@ Reservation.init(
       primaryKey: true,
       autoIncrement: true,
     },  
+    // When reservation was created
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
     },
+    // When machine is started
     started_at: {
       type: DataTypes.DATE,
       allowNull: false,
     },
+    // Reservation time PLUS 75 minutes
     reserve_time: {
       type: DataTypes.DATE,
       allowNull: false
     },
+    // Reservation time PLUS 15 minutes
     expire_at: {
       type: DataTypes.DATE,
       allowNull: false
