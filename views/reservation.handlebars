@@ -4,27 +4,17 @@
     <h4 class="row justify-center">Hi {{firstname}} from apartment {{apartment.apartment_no}} at {{apartment.complex.street_address}}! Select from the machines available or schedule the use of a machine!</h4>
     </div>
     <br><br>
-    <div class="row justify-center">
-    <div class="col-5 justify-center flex-column">
-        <h3 class="row justify-center">Available Now</h3>
-        <div class="" id="availablility">
-            {{#each apartment.complex.machines as |machine|}}
-                <form class="form available-machine-form" id="{{id}}">
-                    <div class="row">{{size}} {{type}} {{id}} is available.</div>
-                    <button class="btn row" type="submit">Reserve Now</button>
-                </form>
-            {{/each}}
+        <div class="reservation-stuff">
+            <h3 class="">Available Now</h3>
+            <div class="" id="availablility">
+                {{#each apartment.complex.machines as |machine|}}
+                    <form class="form justify-center available-machine-form" id="{{id}}">
+                        <div class="row">{{size}} {{type}} {{id}} is available.</div>
+                        <button class="btn row" type="submit">Reserve Now</button>
+                    </form>
+                {{/each}}
+            </div>
         </div>
-    </div>
-    <div class="row col-5 justify-center">
-        <h3>Make a reservation</h3>
-        <form class="form justify-center" id="reserve-machine">
-            <label for="reservation-time">Pick a Date and Time:</label>
-            <input class="form-input" type="datetime-local" id="reservation-time">
-            <button class="btn btn-primary" type="submit">Check availablility</button>
-        </form>
-    </div>
-    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
