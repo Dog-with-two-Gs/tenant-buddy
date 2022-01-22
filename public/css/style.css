@@ -4,16 +4,32 @@
   --cream:rgb(218,217,185);
   --light-brown:rgb(192,136,88);
   --dark-brown: rgb(162,118,91);
+
+  --cream-opactiy: rgb(218,217,185,0.8);
+  --dark-blue-opacity: rgb(29,61,61,0.5);
+  --dark-brown-opacity: rgb(162,118,91,0.7);
+
+  --font-mellow: 'Roboto', sans-serif;
+
+
+
+  --font-perm-mark: 'Permanent Marker', Cursive;
+  --perm-mark-size: 55px;
+  --font-overpass: 'Overpass', Sans-Serif;
+  --overpass-size: 17px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lobster', cursive;
+  /* font-family: 'Lobster', cursive; */
+  font-family: var(--font-overpass);
+  /* font-size: var(--overpass-size); */
+
 }
 header{
-  border-bottom: 1px solid #E2E8F0;
+  border-bottom: 2px solid #E2E8F0;
   z-index:999;
   display: flex;
   flex-direction: row;
@@ -25,12 +41,17 @@ h2 {
 }
 
 
+html, body {
+  height:100% !important;
+}
 
 /******************* NAV BAR *********************/
 
 .nav-styling {
   background-color: var(--cream);
+
   /* border-bottom: 2px solid var(--mint); */
+  /* height: 100%; */
 }
 
 nav, .nav-logout {
@@ -39,7 +60,7 @@ nav, .nav-logout {
   justify-content: space-between;
   align-items: center;
   padding: 0rem 0.75rem;
-
+  /* background-color: var(--cream); */
 }
 
 .nav-logout {
@@ -47,6 +68,9 @@ nav, .nav-logout {
   float: inline-end !important;
   text-shadow: 2px 2px var(--light-brown);
   color: var(--dark-blue);
+  margin-bottom: 5px;
+  font-family: var(--font-perm-mark) ;
+  /* font-size: var(--perm-mark-size); */
 }
 
 .nav-logout-wrap {
@@ -65,6 +89,10 @@ nav, .nav-logout {
   float: left;
   text-shadow: 2px 2px var(--light-brown);
   color: var(--dark-blue);
+  line-height: 100%;
+  height: 100%;
+  font-family: var(--font-perm-mark) ;
+  /* font-size: var(--perm-mark-size); */
 }
 
 .hamburger {
@@ -74,6 +102,7 @@ nav, .nav-logout {
   text-shadow: 2px 2px var(--dark-blue);
   cursor: pointer;
   z-index: 999;
+  margin-bottom: 5px;
 }
 
 .nav-menu {
@@ -94,11 +123,71 @@ nav, .nav-logout {
   cursor: pointer;
   text-shadow: 1px 1px var(--mint);
   color: var(--dark-blue);
-  /* font-family: 'Roboto', sans-serif; */
+  /* font-family:  */
   background-color: var(--cream);
 
-  border-top: 1px solid var(--dark-brown);
 }
+
+/******************* HOMEPAGE HNBLBARS ************************/
+
+.homepage-outer-shell {
+  background: url("../images/homepage-background.jpeg");
+  filter:blur(3px);
+  -webkit-filter: blur(3px);
+
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 5px ;
+
+}
+
+
+.homepage-inner-shell {
+  border: 5px solid var(--cream);
+  padding: 3rem;
+  display: flex;
+  background-color: var(--dark-blue-opacity);
+  z-index: 2;
+  position: absolute;
+  top: 25%;
+  left: 25%; 
+
+}
+
+.homepage-inner-shell h1 {
+  color: white;
+  text-shadow: 2px 2px var(--dark-brown);
+  font-family: var(--font-mellow) ;
+  font-size: xx-large;
+}
+
+.button-section {
+  border: 5px solid var(--mint);
+  padding: 2px;
+
+}
+
+
+.login-button {
+  border: 5px solid var(--dark-brown);
+  padding: 2px;
+
+}
+
+.sign-up-button {
+  border: 5px solid var(--light-brown);
+  padding: 2px;
+
+}
+
+
+
+
+
+
+/*********************** ON HOVER ****************************/
 
 .nav-item:hover{
   text-decoration: none;
