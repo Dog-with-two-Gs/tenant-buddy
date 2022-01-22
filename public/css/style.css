@@ -46,15 +46,6 @@ html, body {
 
 }
 
-body {
-  background: url("../images/homepage-background.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-
 /******************* NAV BAR *********************/
 
 .nav-styling {
@@ -130,25 +121,6 @@ nav, .nav-logout {
   background-color: var(--cream);
   font-family: var(--font-perm-mark);
   /* position:absolute; */
-}
-
-.profile-stuff{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -200px;
-}
-
-.aside-stuff{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.reservation-stuff{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /******************* HOMEPAGE HNBLBARS ************************/
