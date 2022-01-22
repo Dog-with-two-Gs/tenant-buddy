@@ -16,7 +16,7 @@ const reserveNowHandler = async (event) => {
     const machine_id = event.target.id;
     const created_at = currentTime;
     const started_at = currentTime;
-    const reserve_time = moment(currentTime).add({hours: 1, minutes: 15})//.format("YYYY-MM-DDThh:mm");
+    const reserve_time = moment(currentTime).add({ hours: 1, minutes: 15 })//.format("YYYY-MM-DDThh:mm");
     const expire_at = moment(currentTime).add(15, "minutes")//.format("YYYY-MM-DDThh:mm");
     const is_complete = false;
 
@@ -55,16 +55,6 @@ const reserveNowHandler = async (event) => {
 const reserveTimeHandler = async (event) => {
     event.preventDefault();
 
-    const selectTime = moment(document.querySelector('#reservation-time').value);
-
-    const reserve_time = selectTime.format("YYYY-MM-DD HH:mm:ss").replaceAll(':', 'C').replaceAll('-', 'D').replace(' ', 'S');
-
-
-    // console.log(test)
-    // console.log(selectTime)
-    // console.log(test)
-
-    if (selectTime) document.location.replace(`/futureres/${reserve_time}`);
 
 }
 
