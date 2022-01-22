@@ -1,3 +1,4 @@
+
 <main class="align-center justify-center dashboard-outer-shell">
     <div class = "dash-mid-shell">
         <div class = "flex-column align-center justify-space-around dashboard-inner-shell row dash-top-row">
@@ -66,8 +67,75 @@
        
         
     </div>    
+
+<main>
+    <div>
+        <button class='btn' type='submit' id='reserve-btn'>
+            Laundry
+        </button>
+        <button>
+            Tool Rental Coming Soon
+        </button>
+        <button>
+            Parking Space Management Coming Sooner or Later!
+        </button>
     </div>
+    <div>
+        <h2>
+            Notification Center
+        </h2>
+        <div>
+            {{#each reservations as |reservation|}}
+            {{#if is_complete}}
+            <h2>History</h2>
+            <ul>
+                <li>
+                    Machine {{machine_id}} finished at {{format_date reserve_time}}.
+                </li>
+            </ul>
+            {{else}}
+            <h2>Current</h2>
+            <ul>
+                Machine {{machine_id}} is currently in use.
+            </ul>
+            {{/if}}
+            {{/each}}
+        </div>
+        <ul>
+            <li>
+                01/02/2022: The laundry machines will be down for maintenance indefinitely :/
+            </li>
+            <li>
+                12/30/2021: Please stop hanging your clothes to dry on the pipes on the ceiling!
+            </li>
+        </ul>
+        <h3>
+            Functionality Coming in Your Dreams!
+        </h3>
+    </div>
+    <div>
+        <h2>
+            Reservation Status
+        </h2>
+        <h3>
+            Current
+        </h3>
+        <h3>
+            Upcoming
+        </h3>
+    </div>
+    <div>
+        <h2>
+            Message Board
+        </h2>
+        <p>
+            Feature- Coming Maybe?
+        </p>
+
+</div>
 
    
     
 </main>
+
+<script src="/js/dashboard.js"></script>
