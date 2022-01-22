@@ -23,6 +23,9 @@
             <input class="form-input" type="datetime-local" id="reservation-time">
             <button class="btn btn-primary" type="submit">Check availablility</button>
         </form>
+        {{#if reservation_partial}}
+        {{> reservation-details}}
+        {{/if}}
     </div>
     </div>
 </div>
