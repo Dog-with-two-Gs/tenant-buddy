@@ -98,6 +98,7 @@ router.get('/dashboard', isAuth, async (req, res) => {
         });
 
         const user = userData.get({plain: true});
+        console.log(user.reservations[0]);
         res.render('dashboard', {
             ...user,
             logged_in: req.session.logged_in,
