@@ -1,6 +1,6 @@
 <main>
     <div>
-        <button>
+        <button class='btn' type='submit' id='reserve-btn'>
             Laundry
         </button>
         <button>
@@ -16,19 +16,19 @@
         </h2>
         <div>
             {{#each reservations as |reservation|}}
-                {{#if is_complete}}
-                <h2>History</h2>
-                <ul>
-                    <li>
-                        Machine {{machine_id}} was reserved on {{reserve_time}}.
-                    </li>
-                </ul>
-                {{else}}
-                <h2>Current</h2>
-                <ul>
-                    Machine {{machine_id}} is currently in use.
-                </ul>
-                {{/if}}
+            {{#if is_complete}}
+            <h2>History</h2>
+            <ul>
+                <li>
+                    Machine {{machine_id}} was reserved on {{reserve_time}}.
+                </li>
+            </ul>
+            {{else}}
+            <h2>Current</h2>
+            <ul>
+                Machine {{machine_id}} is currently in use.
+            </ul>
+            {{/if}}
             {{/each}}
         </div>
         <ul>

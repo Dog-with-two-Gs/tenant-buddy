@@ -35,7 +35,7 @@ router.put('/', async (req, res) => {
             })
 
         if (!reservationData) {
-            res.status(404).json({ message: 'No machines found' })
+            res.status(404).json({ message: 'No reservations found' })
         }
         res.status(200).json(reservationData);
     } catch (err) {
