@@ -7,9 +7,10 @@ https://tenant-buddy.herokuapp.com/
 
 ## Description
 
-This app was created for property managers to offer services to renters, starting with a laundry machine reservation system. In future versions, tool borrowing and parking management will be available. We created a homepage which will allow the user to sign in or create an account. The user will then be able to select a service and view their reservation status, notifications and a message board. For the first version of this app, the laundry button and reservation board will be enabled. When selecting the laundry button, the user will be directed to a page which allows them to choose whether they would like to reserve a washer or a dryer as well a button they can click to manage existing reservations. When the user selects which machine type they would like to use, they will be directed to a page which shows them which washers/dryers are available. Then they will select their reservation times from drop down start time and end time menus and search if those times are available. 
+This app was created for property managers to offer services to renters, starting with a laundry machine reservation system. In future versions, tool borrowing and parking management will be available. We created a homepage which will allow the user to sign in or create an account. The user will then be able to select a service and view their reservation status, notifications and a message board. For the first version of this app, the laundry button and reservation board will be enabled. When selecting the laundry button, the user will be directed to a page which allows them to choose whether they would like to reserve a washer or a dryer. When the user selects which machine type they would like to use, they will be directed to a page which shows them which washers/dryers are available. Then the user may choose a washer or dryer they would like to reserve.
 
 ![Tables from Dibs database](./assets/tables-tb.jpg)
+![Dibs Dashboard](./assets/dibs.jpg)
 
 # Usage
 
